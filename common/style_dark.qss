@@ -1,0 +1,179 @@
+/* 暗黑主题 - common/style_dark.qss
+   目的：与 `style.qss` 对应的深色配色，使切换主题时元素选择器保持一致
+*/
+
+QWidget {
+    background-color: %BG%;
+    color: %TEXT%;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 10pt;
+}
+
+QFrame#card, QFrame#labeled_frame, QFrame[role="card"] {
+    background: %SURFACE%;
+    border: 1px solid %BORDER_DARK%;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+QLabel#title, QLabel[role="title"] {
+    font-size: 14pt;
+    font-weight: 700;
+    color: %TITLE%;
+    margin-bottom: 10px;
+}
+
+QLabel#frame_title {
+    font-weight: bold;
+    font-size: 11pt;
+    padding: 0px;
+    margin: 0px;
+}
+
+QLabel#muted, QLabel[role="muted"] {
+    color: %MUTED%;
+    font-size: 9pt;
+}
+
+/* 子标题/描述文本，页面内用于简短说明文字 */
+QLabel#subtitle, QLabel[role="subtitle"] {
+    color: %MUTED%;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+QCheckBox {
+    spacing: 5px;
+    padding: 2px;
+    border-radius: 4px;
+}
+QCheckBox::indicator {
+    width: 14px;
+    height: 14px;
+    border: 2px solid %BORDER_MUTED%;
+    background-color: %SURFACE_ALT%;
+    border-radius: 3px;
+}
+QCheckBox::indicator:checked {
+    border: 2px solid %SUCCESS%;
+    background-color: %SUCCESS%;
+}
+QCheckBox:hover {
+    background-color: rgba(255,255,255,0.02);
+}
+QCheckBox:checked {
+    background-color: %SUCCESS_BG%;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: %PRIMARY%;
+    color: %SURFACE%;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    min-height: 28px;
+}
+QPushButton:hover {
+    background-color: %PRIMARY%;
+    opacity: 0.95;
+}
+QPushButton:pressed {
+    background-color: %PRIMARY%;
+}
+QPushButton:disabled {
+    background-color: %DISABLED_BG%;
+    color: %DISABLED_TEXT%;
+}
+
+QPushButton[variant="secondary"] {
+    background-color: %SUCCESS%;
+}
+QPushButton[variant="warning"] {
+    background-color: %WARNING%;
+}
+QPushButton[variant="danger"] {
+    background-color: %DANGER%;
+}
+
+QPushButton#control_button, QPushButton[role="control"] {
+    background-color: %SUCCESS%;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+QLineEdit, QTextEdit {
+    background: %SURFACE%;
+    border: 1px solid %BORDER_MUTED%;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+QTextEdit#log_text, QTextEdit[role="log"] {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10pt;
+    background-color: %BG%;
+    color: %TEXT%;
+}
+
+QFrame#separator {
+    border: none;
+    border-top: 1px solid %BORDER_DARK%;
+    margin: 8px 0px;
+}
+
+QGroupBox {
+    font-weight: bold;
+    border: 1px solid %BORDER_DARK%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background-color: transparent;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+}
+
+QProgressBar {
+    border: 1px solid %BORDER_DARK%;
+    border-radius: 6px;
+    text-align: center;
+    background: %BG%;
+}
+QProgressBar::chunk {
+    background-color: %PRIMARY%;
+    border-radius: 6px;
+}
+
+QTableView {
+    background: %SURFACE%;
+    gridline-color: %GRIDLINE%;
+    alternate-background-color: %BG%;
+}
+QHeaderView::section {
+    background-color: %HEADER_BG%;
+    padding: 6px;
+    border: 1px solid %BORDER_DARK%;
+}
+
+QPushButton.compact {
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+QLabel#file_placeholder, QLabel[role="file_placeholder"] {
+    color: %MUTED%;
+    background-color: %PLACEHOLDER_BG%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+QLabel#file_selected, QLabel[role="file_selected"] {
+    color: %SUCCESS%;
+    background-color: %SUCCESS_BG%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}

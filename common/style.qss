@@ -1,0 +1,198 @@
+/* 全局样式定义 - common/style.qss
+   用途：集中管理应用的视觉样式（按钮、表单、卡片、表格等）
+*/
+
+/* 基础窗口与字体 */
+QWidget {
+    background-color: %BG%;
+    color: %TEXT%;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 10pt;
+}
+
+/* 卡片样式（可用于 QFrame 作为卡片容器） */
+QFrame#card, QFrame#labeled_frame, QFrame[role="card"] {
+    background: %SURFACE%;
+    border: 1px solid %BORDER_LIGHT%;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* 标题/次级文本 */
+QLabel#title, QLabel[role="title"] {
+    font-size: 14pt;
+    font-weight: 700;
+    color: %TITLE%;
+    margin-bottom: 10px;
+}
+
+/* LabeledFrame 标题样式（用于 #frame_title） */
+QLabel#frame_title {
+    font-weight: bold;
+    font-size: 11pt;
+    padding: 0px;
+    margin: 0px;
+}
+
+QLabel#muted, QLabel[role="muted"] {
+    color: %MUTED%;
+    font-size: 9pt;
+}
+
+/* 子标题/描述文本，页面内用于简短说明文字 */
+QLabel#subtitle, QLabel[role="subtitle"] {
+    color: %MUTED%;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+/* 复选框样式 */
+QCheckBox {
+    spacing: 5px;
+    padding: 2px;
+    border-radius: 4px;
+}
+QCheckBox::indicator {
+    width: 14px;
+    height: 14px;
+    border: 2px solid %BORDER_MUTED%;
+    background-color: %SURFACE%;
+    border-radius: 3px;
+}
+QCheckBox::indicator:checked {
+    border: 2px solid %SUCCESS%;
+    background-color: %SUCCESS%;
+}
+QCheckBox:hover {
+    background-color: %SURFACE_ALT%;
+}
+QCheckBox:checked {
+    background-color: %SUCCESS_BG%;
+    font-weight: bold;
+}
+
+/* 主按钮样式 */
+QPushButton {
+    background-color: %PRIMARY%;
+    color: %SURFACE%;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    min-height: 28px;
+}
+QPushButton:hover {
+    /* 保持原有交互色，但主色可由主题决定 */
+    background-color: %PRIMARY%;
+    opacity: 0.95;
+}
+QPushButton:pressed {
+    background-color: %PRIMARY%;
+}
+QPushButton:disabled {
+    background-color: %DISABLED_BG%;
+    color: %DISABLED_TEXT%;
+}
+
+/* 次级按钮（通过属性设置） */
+QPushButton[variant="secondary"] {
+    background-color: %SUCCESS%;
+}
+QPushButton[variant="warning"] {
+    background-color: %WARNING%;
+}
+QPushButton[variant="danger"] {
+    background-color: %DANGER%;
+}
+
+/* 专用命名对象样式（项目中已有使用） */
+QPushButton#control_button, QPushButton[role="control"] {
+    background-color: %SUCCESS%;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+/* 输入框与文本区域 */
+QLineEdit, QTextEdit {
+    background: %SURFACE%;
+    border: 1px solid %BORDER_MUTED%;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+/* 文本日志使用等宽字体以便粘贴/查看 */
+QTextEdit#log_text, QTextEdit[role="log"] {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10pt;
+    background-color: %SURFACE%;
+}
+
+/* 分隔线 */
+QFrame#separator {
+    border: none;
+    border-top: 1px solid %BORDER_LIGHT%;
+    margin: 8px 0px;
+}
+
+/* GroupBox 样式 */
+QGroupBox {
+    font-weight: bold;
+    border: 1px solid %BORDER_LIGHT%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background-color: transparent;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+}
+
+/* 进度条 */
+QProgressBar {
+    border: 1px solid %BORDER_MUTED%;
+    border-radius: 6px;
+    text-align: center;
+    background: %SURFACE%;
+}
+QProgressBar::chunk {
+    background-color: %PRIMARY%;
+    border-radius: 6px;
+}
+
+/* 表格（若使用 QTableView） */
+QTableView {
+    background: %SURFACE%;
+    gridline-color: %GRIDLINE%;
+    alternate-background-color: %SURFACE_ALT%;
+}
+QHeaderView::section {
+    background-color: %HEADER_BG%;
+    padding: 6px;
+    border: 1px solid %BORDER_LIGHT%;
+}
+
+/* 小屏幕/紧凑按钮 */
+QPushButton.compact {
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+/* 便于调试/扩展：在文件顶部注明色值（人工维护） */
+/* PRIMARY: %PRIMARY%  SUCCESS: %SUCCESS%  WARNING: %WARNING%  DANGER: %DANGER% */
+
+/* 文件选择占位与已选样式 */
+QLabel#file_placeholder, QLabel[role="file_placeholder"] {
+    color: %MUTED%;
+    background-color: %PLACEHOLDER_BG%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+QLabel#file_selected, QLabel[role="file_selected"] {
+    color: %SUCCESS%;
+    background-color: %SUCCESS_BG%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}

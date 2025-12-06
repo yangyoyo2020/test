@@ -4,6 +4,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import Border, Side, PatternFill, Font
 from openpyxl.utils import get_column_letter
 import logging
+from logging import Logger
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Tuple
@@ -16,6 +17,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import QThread, pyqtSignal
 from PyQt6.QtGui import QFont
+
 
 # 抑制pandas警告
 warnings.filterwarnings('ignore', category=pd.errors.PerformanceWarning)
@@ -46,61 +48,7 @@ class ConfigManager:
         if key in cls.DEFAULT_CONFIG:
             cls.DEFAULT_CONFIG[key] = value
 
-class QtHandler(logging.Handler):
-    """用于将日志输出到Qt文本控件的处理器"""
-    def __init__(self, signal):
-        super().__init__()
-        self.signal = signal
-
-    def emit(self, record):
-        msg = self.format(record)
-        self.signal.emit(msg)
-
-class Logger:
-    """日志管理类"""
-    
-    _instance = None
-    
-    def __new__(cls, log_signal=None):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            cls._instance._setup_logger(log_signal)
-        return cls._instance
-    
-    def _setup_logger(self, log_signal):
-        """配置日志记录器"""
-        self.logger = logging.getLogger('AccountingAnalyzer')
-        self.logger.setLevel(logging.INFO)
-        
-        # 避免重复添加处理器
-        if self.logger.hasHandlers():
-            self.logger.handlers.clear()
-        
-        # 文件处理器
-        log_file = Path("日志文件.log")
-        file_handler = logging.FileHandler(log_file, encoding='utf-8')
-        file_handler.setLevel(logging.INFO)
-        
-        # 格式化器
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
-        
-        # 如果提供了信号，则添加UI日志处理器
-        if log_signal:
-            ui_handler = QtHandler(log_signal)
-            ui_handler.setLevel(logging.INFO)
-            ui_handler.setFormatter(formatter)
-            self.logger.addHandler(ui_handler)
-    
-    def info(self, message: str):
-        self.logger.info(message)
-    
-    def error(self, message: str):
-        self.logger.error(message)
-    
-    def warning(self, message: str):
-        self.logger.warning(message)
+from common.logger import get_logger, add_qt_signal
 
 class DataProcessor:
     """数据处理基类"""
@@ -597,18 +545,29 @@ class AccountingAnalyzer:
 class MainWindow(QMainWindow):
     """主窗口类"""
     log_signal = pyqtSignal(str)
-    
-    def __init__(self):
+
+    def __init__(self, logger: logging.Logger = None):
         super().__init__()
         self.setWindowTitle("计算会计核算偏离度工具")
         self.setGeometry(100, 100, 800, 600)
         self.setMinimumSize(600, 500)
-        
+
         # 初始化分析器
         self.analyzer = AccountingAnalyzer()
-        
-        # 初始化日志系统
-        self.logger = Logger(self.log_signal)
+
+        # 使用外部注入的 logger（优先）或在本地创建
+        self.logger = logger
+        try:
+            if self.logger is None:
+                # 没有传入 logger 时，按原逻辑创建一个并将 qt 信号附加到该 logger
+                self.logger = get_logger('AccountingAnalyzer', qt_signal=self.log_signal)
+            else:
+                # 如果传入了 logger，则把本窗口的 signal 附加到该 logger
+                add_qt_signal(self.logger, self.log_signal)
+        except Exception:
+            # 在任何错误情况下回退为空 logger
+            self.logger = None
+
         self.analyzer.set_logger(self.logger)
         self.log_signal.connect(self.update_log)
         
@@ -628,58 +587,9 @@ class MainWindow(QMainWindow):
         
         main_layout = QVBoxLayout(central_widget)
         
-        # 设置统一的样式表
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #F3F4F6;
-                font-family: "Segoe UI";
-            }
-            QPushButton {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 6px 12px;
-                text-align: center;
-                font-size: 14px;
-                border-radius: 4px;
-                font-weight: bold;
-                min-height: 25px;
-            }
-            QPushButton:hover {
-                background-color: #45a049;
-            }
-            QPushButton:pressed {
-                background-color: #3d8b40;
-            }
-            QPushButton:disabled {
-                background-color: #cccccc;
-                color: #666666;
-            }
-            QGroupBox {
-                font-weight: bold;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                margin-top: 1ex;
-                background-color: white;
-                font-size: 11pt;
-            }
-            QGroupBox::title {
-                subcontrol-origin: margin;
-                left: 10px;
-                padding: 0 5px 0 5px;
-            }
-            QLineEdit {
-                padding: 5px;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                background-color: white;
-            }
-            QTextEdit {
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                background-color: white;
-            }
-        """)
+        # 使用全局样式表 (common/style.qss) 加载于应用入口处，避免模块内重复样式定义
+        # 如需模块特定样式，可使用 setObjectName / setProperty 并在 common/style.qss 中添加选择器
+        central_widget.setObjectName('accounting_central')
         
         # 创建配置区域
         self.create_config_section(main_layout)
@@ -752,7 +662,7 @@ class MainWindow(QMainWindow):
         kjhs_browse_btn.clicked.connect(self.browse_kjhs_file)
         
         # 输出文件路径
-        output_label = QLabel("输出文件:")
+        output_label = QLabel("输出文件路径:")
         self.output_path_edit = QLineEdit()
         output_browse_btn = QPushButton("浏览...")
         output_browse_btn.clicked.connect(self.browse_output_file)

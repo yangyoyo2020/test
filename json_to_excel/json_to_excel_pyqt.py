@@ -3,9 +3,11 @@ import pandas as pd
 import json
 from pathlib import Path
 from PyQt6.QtWidgets import (QApplication, QWidget, QVBoxLayout, QPushButton, 
-                             QLabel, QFileDialog, QMessageBox, QFrame, QProgressDialog)
+                             QLabel, QFileDialog, QMessageBox, QFrame, QProgressDialog, QTextEdit, QGroupBox, QHBoxLayout, QSizePolicy)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QFont
+from common.logger import get_logger, add_qt_text_widget, add_qt_signal
+from sanbao_test.gui_utils import ControlButton, create_separator, LabeledFrame
 
 
 class ConversionWorker(QThread):
@@ -13,13 +15,17 @@ class ConversionWorker(QThread):
     progress_updated = pyqtSignal(int)
     conversion_finished = pyqtSignal(bool, str)
 
-    def __init__(self, json_path, excel_path):
+    def __init__(self, json_path, excel_path, logger=None):
         super().__init__()
         self.json_path = json_path
         self.excel_path = excel_path
+        # 使用外部传入的 logger（如果提供）以避免重复初始化
+        self.logger = logger
 
     def run(self):
         try:
+            if getattr(self, 'logger', None):
+                self.logger.info(f"开始转换: {self.json_path} -> {self.excel_path}")
             # 读取JSON文件 (10%)
             self.progress_updated.emit(10)
             with open(self.json_path, 'r', encoding='utf-8') as f:
@@ -45,11 +51,17 @@ class ConversionWorker(QThread):
             
             # 完成 (100%)
             self.progress_updated.emit(100)
+            if getattr(self, 'logger', None):
+                self.logger.info(f"转换完成: {self.excel_path}")
             self.conversion_finished.emit(True, self.excel_path)
             
         except json.JSONDecodeError:
+            if getattr(self, 'logger', None):
+                self.logger.error("JSONDecodeError: JSON 文件格式不正确！")
             self.conversion_finished.emit(False, "JSON 文件格式不正确！")
         except Exception as e:
+            if getattr(self, 'logger', None):
+                self.logger.error(f"转换失败: {str(e)}")
             self.conversion_finished.emit(False, f"转换失败: {str(e)}")
 
     @staticmethod
@@ -94,113 +106,133 @@ class ConversionWorker(QThread):
 
 
 class JSONToExcelConverter(QWidget):
-    def __init__(self):
+    log_signal = pyqtSignal(str)
+
+    def __init__(self, logger=None):
         super().__init__()
         self.json_file_path = ""
+        # 先创建 UI，使得 self.log_text 可用
         self.initUI()
+        # 如果外部传入 logger，则使用并附加 UI 文本控件；否则保持原有行为（UI 层创建 logger）
+        try:
+            # 连接信号到文本框（线程安全）
+            try:
+                self.log_signal.connect(lambda m: self._append_log(m))
+            except Exception:
+                pass
+            # 优先使用外部传入的 logger（并将 QTextEdit 作为目标），否则在此处创建 logger 并附加 QTextEdit
+            if logger is not None:
+                # 使用外部传入的 logger，通过 signal 将日志发送到 UI，避免直接附加 QTextEdit 导致线程问题或重复输出
+                self.logger = logger
+                try:
+                    add_qt_signal(self.logger, self.log_signal)
+                except Exception:
+                    pass
+                self.logger.info("JSONToExcel UI 启动")
+            else:
+                # 兼容旧行为：在 UI 层创建 logger 并通过 signal 输出到 UI
+                self.logger = get_logger('JSONToExcel')
+                try:
+                    add_qt_signal(self.logger, self.log_signal)
+                except Exception:
+                    pass
+                self.logger.info("JSONToExcel UI 启动")
+        except Exception:
+            self.logger = None
+
+    def _append_log(self, message: str):
+        try:
+            if getattr(self, 'log_text', None) is not None:
+                self.log_text.append(message)
+                try:
+                    self.log_text.verticalScrollBar().setValue(
+                        self.log_text.verticalScrollBar().maximum()
+                    )
+                except Exception:
+                    pass
+        except Exception:
+            pass
     
     def initUI(self):
         self.setWindowTitle("JSON 转 Excel 工具")
-        self.setGeometry(300, 300, 550, 320)
-        # self.setMinimumSize(500, 300)  # 设置最小窗口尺寸
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #f0f0f0;
-                font-family: "Microsoft YaHei", sans-serif;
-            }
-            QPushButton {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 12px 24px;
-                text-align: center;
-                font-size: 16px;
-                border-radius: 8px;
-                font-weight: bold;
-            }
-            QPushButton:hover {
-                background-color: #45a049;
-            }
-            QPushButton:pressed {
-                background-color: #3d8b40;
-            }
-            QPushButton:disabled {
-                background-color: #cccccc;
-                color: #666666;
-            }
-            QLabel {
-                color: #333;
-                font-size: 14px;
-            }
-        """)
-        
+        self.setGeometry(120, 120, 700, 520)
+
+        # 主布局，借鉴三保界面规范
         main_layout = QVBoxLayout()
-        main_layout.setSpacing(20)
-        main_layout.setContentsMargins(30, 30, 30, 30)
-        
-        # 标题
+        main_layout.setContentsMargins(12, 12, 12, 12)
+        main_layout.setSpacing(10)
+
+        # 标题与描述（使用与三保一致的 objectName）
         title_label = QLabel("JSON 转 Excel 工具")
         title_font = QFont()
         title_font.setPointSize(18)
         title_font.setBold(True)
         title_label.setFont(title_font)
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title_label.setStyleSheet("color: #2c3e50; margin-bottom: 10px;")
-        
-        # 描述标签
+        title_label.setObjectName('title')
+
         desc_label = QLabel("将JSON数据转换为Excel表格，支持嵌套结构解析")
         desc_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        desc_label.setStyleSheet("color: #7f8c8d; font-size: 12px;")
-        
-        # 文件选择区域
-        file_frame = QFrame()
-        file_frame.setFrameStyle(QFrame.Shape.StyledPanel | QFrame.Shadow.Raised)
-        file_frame.setStyleSheet("""
-            QFrame {
-                background-color: white;
-                border-radius: 10px;
-                padding: 15px;
-            }
-        """)
-        
-        file_layout = QVBoxLayout()
-        file_layout.setSpacing(15)
-        
-        # 选择文件按钮
-        self.select_btn = QPushButton("📁 选择 JSON 文件")
-        self.select_btn.setMinimumHeight(50)
-        
-        # 显示文件路径
-        self.file_label = QLabel("未选择文件")
-        self.file_label.setWordWrap(True)
-        self.file_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.file_label.setStyleSheet("""
-            QLabel {
-                color: #95a5a6;
-                background-color: #ecf0f1;
-                padding: 15px;
-                border-radius: 8px;
-                font-size: 13px;
-            }
-        """)
-        
-        file_layout.addWidget(self.select_btn)
-        file_layout.addWidget(self.file_label)
-        file_frame.setLayout(file_layout)
-        
-        # 转换按钮
-        self.convert_btn = QPushButton("🔄 转换为 Excel")
-        self.convert_btn.setMinimumHeight(50)
-        self.convert_btn.setEnabled(False)  # 初始禁用
-        
-        # 添加控件到主布局
+        desc_label.setObjectName('subtitle')
+
         main_layout.addWidget(title_label)
         main_layout.addWidget(desc_label)
-        main_layout.addWidget(file_frame, 1)  # 让文件区域可伸缩
-        main_layout.addWidget(self.convert_btn)
-        
+
+        # 文件选择（使用 LabeledFrame 或 GroupBox风格）
+        file_frame = LabeledFrame(self, "选择导入JSON文件")
+        file_layout = file_frame.content_layout
+        file_layout.setSpacing(8)
+
+        # 使用 ControlButton 与统一样式
+        self.select_btn = ControlButton(self, "1. 浏览..", width=14)
+
+        # 在路径前显示 "文件选择:" 字眼以增强语义
+        self.file_label = QLabel("文件选择: 未选择文件")
+        self.file_label.setWordWrap(True)
+        self.file_label.setObjectName('file_placeholder')
+
+        # 将文件路径标签与选择按钮放在同一行，路径文本右对齐并占据可用空间，按钮固定在最右侧
+        file_row = QHBoxLayout()
+        file_row.setSpacing(8)
+        # 让 label 在水平方向上可扩展，并将文本右对齐
+        self.file_label.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        self.file_label.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+        file_row.addWidget(self.file_label)
+        file_row.addWidget(self.select_btn)
+        file_layout.addLayout(file_row)
+        main_layout.addWidget(file_frame)
+
+        # 操作按钮行（横向，与三保风格一致）
+        btn_layout = QHBoxLayout()
+        btn_layout.addStretch()
+        self.convert_btn = ControlButton(self, "2. 转换为 Excel文件", width=16)
+        self.convert_btn.setEnabled(False)
+        self.convert_btn.setProperty('variant', 'secondary')
+        btn_layout.addWidget(self.convert_btn)
+
+        # 退出按钮，放在转换按钮右侧
+        exit_btn = ControlButton(self, "退出", width=16)
+        exit_btn.clicked.connect(self.close)
+        btn_layout.addWidget(exit_btn)
+
+        main_layout.addLayout(btn_layout)
+
+        # 分隔线
+        main_layout.addWidget(create_separator(self))
+
+        # 日志区域（使用三保相同的分组形式）
+        log_group = QGroupBox("日志信息")
+        log_layout = QVBoxLayout()
+        self.log_text = QTextEdit()
+        self.log_text.setReadOnly(True)
+        self.log_text.setMaximumHeight(200)
+        self.log_text.setObjectName('log_text')
+        log_layout.addWidget(self.log_text)
+        log_group.setLayout(log_layout)
+        main_layout.addWidget(log_group)
+
         self.setLayout(main_layout)
-        
+
         # 连接信号和槽
         self.select_btn.clicked.connect(self.select_json_file)
         self.convert_btn.clicked.connect(self.convert_json_to_excel)
@@ -215,17 +247,10 @@ class JSONToExcelConverter(QWidget):
         
         if file_path:
             self.json_file_path = file_path
-            # 显示完整路径但自动换行
-            self.file_label.setText(file_path)
-            self.file_label.setStyleSheet("""
-                QLabel {
-                    color: #27ae60;
-                    background-color: #d5f5e3;
-                    padding: 15px;
-                    border-radius: 8px;
-                    font-size: 13px;
-                }
-            """)
+            # 显示完整路径并在前面加语义前缀
+            self.file_label.setText(f"文件选择: {file_path}")
+            # 切换到已选样式（由 common/style.qss 控制）
+            self.file_label.setObjectName('file_selected')
             self.convert_btn.setEnabled(True)  # 启用转换按钮
 
     def convert_json_to_excel(self):
@@ -251,6 +276,13 @@ class JSONToExcelConverter(QWidget):
         # 确保文件扩展名正确
         if not save_path.endswith('.xlsx'):
             save_path += '.xlsx'
+
+        # 记录操作到统一日志
+        try:
+            if getattr(self, 'logger', None):
+                self.logger.info(f"用户选择保存路径: {save_path}")
+        except Exception:
+            pass
         
         # 创建进度对话框
         progress = QProgressDialog("正在转换...", "取消", 0, 100, self)
@@ -258,8 +290,8 @@ class JSONToExcelConverter(QWidget):
         progress.setWindowModality(Qt.WindowModality.WindowModal)
         progress.setValue(0)
         
-        # 创建并启动转换线程
-        self.worker = ConversionWorker(self.json_file_path, save_path)
+        # 创建并启动转换线程（将 UI 层的 logger 传入 worker）
+        self.worker = ConversionWorker(self.json_file_path, save_path, logger=getattr(self, 'logger', None))
         self.worker.progress_updated.connect(progress.setValue)
         self.worker.conversion_finished.connect(self.on_conversion_finished)
         
@@ -270,6 +302,16 @@ class JSONToExcelConverter(QWidget):
         progress.exec()
 
     def on_conversion_finished(self, success, message):
+        # 记录并展示转换结果
+        try:
+            if getattr(self, 'logger', None):
+                if success:
+                    self.logger.info(f"转换成功: {message}")
+                else:
+                    self.logger.error(f"转换失败: {message}")
+        except Exception:
+            pass
+
         if success:
             QMessageBox.information(
                 self, 

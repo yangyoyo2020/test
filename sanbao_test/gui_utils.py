@@ -59,20 +59,7 @@ class LabeledFrame(QFrame):
         self.content_layout.setSpacing(5)
         main_layout.addLayout(self.content_layout)
         
-        # 设置样式
-        self.setStyleSheet("""
-            #labeled_frame {
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                background-color: white;
-            }
-            #frame_title {
-                font-weight: bold;
-                font-size: 11pt;
-                padding: 0px;
-                margin: 0px;
-            }
-        """)
+        # 使用全局样式表中的 #labeled_frame 和 #frame_title
 
 
 class ControlButton(QPushButton):
@@ -84,29 +71,7 @@ class ControlButton(QPushButton):
         self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         self.setObjectName("control_button")
         
-        # 设置样式，与json_to_excel工具保持一致但尺寸更小
-        self.setStyleSheet("""
-            #control_button {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 8px 16px;
-                text-align: center;
-                font-size: 14px;
-                border-radius: 6px;
-                font-weight: bold;
-            }
-            #control_button:hover {
-                background-color: #45a049;
-            }
-            #control_button:pressed {
-                background-color: #3d8b40;
-            }
-            #control_button:disabled {
-                background-color: #cccccc;
-                color: #666666;
-            }
-        """)
+        # 样式由 common/style.qss 中的 #control_button 控制
 
 
 def create_separator(parent):
@@ -116,13 +81,6 @@ def create_separator(parent):
     separator.setFrameShadow(QFrame.Shadow.Sunken)
     separator.setObjectName("separator")
     
-    # 设置样式
-    separator.setStyleSheet("""
-        #separator {
-            border: none;
-            border-top: 1px solid #E6E6E6;
-            margin: 5px 0px;
-        }
-    """)
+    # 样式由 common/style.qss 中的 #separator 控制
     
     return separator

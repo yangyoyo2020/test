@@ -1,19 +1,25 @@
 import os
-from typing import Optional, Dict, List
+from typing import Optional, List
 from datetime import datetime
 import pandas as pd
-import logging
-from pathlib import Path
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-    QLineEdit, QFileDialog, QMessageBox, QCheckBox, QPushButton,
-    QLabel, QFrame, QTextEdit, QGroupBox, QProgressDialog
+    QLineEdit, QFileDialog, QMessageBox, QCheckBox,
+    QLabel, QTextEdit, QGroupBox, QProgressDialog
 )
+from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QListView, QTableView
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QAbstractTableModel, QModelIndex, QSortFilterProxyModel
+from PyQt6.QtGui import QStandardItemModel, QStandardItem, QBrush, QColor
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 
-from .constants_copy import *
+# constants and gui utils
+from .constants_copy import (
+    WINDOW_TITLE, BUTTON_WIDTH, TARGET_TYPES,
+    GKJZ_ACTUAL_COLS, SHIBO_APPLY_COLS, GKJZ_PLAN_COLS,
+    GKJZ_REMAINING_COLS, GKJZ_APPLY_COLS,
+    RESULT_COLS, ERROR_MESSAGES, nonzero_unit_mask,
+)
 from .gui_utils import ScrollableFrame, ControlButton, create_separator
-
 # 输出格式化列定义（用于 display_summary）
 numeric_cols = [
     '调整预算数', '计划金额', '计划剩余金额', '支付申请金额',
@@ -22,65 +28,7 @@ numeric_cols = [
 percent_cols = ['实际支出进度%', '在途+实际支出进度%']
 
 
-class QtHandler(logging.Handler):
-    """用于将日志输出到Qt文本控件的处理器"""
-    def __init__(self, text_widget):
-        super().__init__()
-        self.text_widget = text_widget
 
-    def emit(self, record):
-        msg = self.format(record)
-        if self.text_widget:
-            self.text_widget.append(msg)
-            # 自动滚动到底部
-            self.text_widget.verticalScrollBar().setValue(self.text_widget.verticalScrollBar().maximum())
-
-
-class Logger:
-    """日志管理类"""
-    
-    _instance = None
-    
-    def __new__(cls, text_widget=None):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            cls._instance._setup_logger(text_widget)
-        return cls._instance
-    
-    def _setup_logger(self, text_widget):
-        """配置日志记录器"""
-        self.logger = logging.getLogger('SanBaoExpenditure')
-        self.logger.setLevel(logging.INFO)
-        
-        # 避免重复添加处理器
-        if self.logger.hasHandlers():
-            self.logger.handlers.clear()
-        
-        # 文件处理器
-        log_file = Path("日志文件.log")
-        file_handler = logging.FileHandler(log_file, encoding='utf-8')
-        file_handler.setLevel(logging.INFO)
-        
-        # 格式化器
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
-        
-        # 如果提供了文本控件，则添加UI日志处理器
-        if text_widget:
-            ui_handler = QtHandler(text_widget)
-            ui_handler.setLevel(logging.INFO)
-            ui_handler.setFormatter(formatter)
-            self.logger.addHandler(ui_handler)
-    
-    def info(self, message: str):
-        self.logger.info(message)
-    
-    def error(self, message: str):
-        self.logger.error(message)
-    
-    def warning(self, message: str):
-        self.logger.warning(message)
 
 
 class AnalysisWorker(QThread):
@@ -106,10 +54,45 @@ class AnalysisWorker(QThread):
             self.error.emit(str(e))
 
 
+class PandasModel(QAbstractTableModel):
+    """A minimal Qt model to display a pandas DataFrame in QTableView."""
+    def __init__(self, df: pd.DataFrame, parent=None):
+        super().__init__(parent)
+        self._df = df.reset_index(drop=True)
+
+    def rowCount(self, parent=QModelIndex()):
+        return 0 if self._df is None else len(self._df)
+
+    def columnCount(self, parent=QModelIndex()):
+        return 0 if self._df is None else len(self._df.columns)
+
+    def data(self, index, role=Qt.ItemDataRole.DisplayRole):
+        if not index.isValid() or role != Qt.ItemDataRole.DisplayRole:
+            return None
+        try:
+            val = self._df.iat[index.row(), index.column()]
+            return '' if pd.isna(val) else str(val)
+        except Exception:
+            return None
+
+    def headerData(self, section, orientation, role=Qt.ItemDataRole.DisplayRole):
+        if role != Qt.ItemDataRole.DisplayRole:
+            return None
+        if orientation == Qt.Orientation.Horizontal:
+            try:
+                return str(self._df.columns[section])
+            except Exception:
+                return None
+        else:
+            return str(section + 1)
+
+
 class ExpenditureAnalyzer(QMainWindow):
     """三保支出进度分析工具主类"""
+    # 提供给 logger 使用的信号（通过 signal 将日志发送回主线程，由窗口处理显示）
+    log_signal = pyqtSignal(str)
     
-    def __init__(self):
+    def __init__(self, logger=None):
         super().__init__()
         self.df = None  # 原始数据
         self.checkboxes_units = {}  # 预算单位复选框
@@ -133,8 +116,8 @@ class ExpenditureAnalyzer(QMainWindow):
         self.worker = None
         self.progress_dialog = None
 
-        # 初始化日志记录器（先创建一个基础的logger）
-        self.logger = None
+        # 外部注入的 logger（由 UI 层创建并传入）
+        self.logger = logger
 
         self._setup_ui()
         # 不在初始化时自动加载默认文件，改为由用户通过界面选择并加载
@@ -182,6 +165,21 @@ class ExpenditureAnalyzer(QMainWindow):
         # 创建底部按钮区域
         button_layout = self._create_button_frame()
         main_frame.addLayout(button_layout)
+
+        # 初始时禁用分析按钮，直到成功加载数据
+        try:
+            self.analyze_btn.setEnabled(False)
+        except Exception:
+            pass
+
+        # 创建数据预览区域（加载数据后显示前 N 行），使用 QTableView + PandasModel
+        preview_frame = QGroupBox("数据预览")
+        self.preview_view = QTableView()
+        self.preview_view.setObjectName('preview_view')
+        self.preview_view.setMaximumHeight(220)
+        preview_frame.setLayout(QVBoxLayout())
+        preview_frame.layout().addWidget(self.preview_view)
+        main_frame.addWidget(preview_frame)
         
         # 创建日志区域
         log_layout = self._create_log_frame()
@@ -189,49 +187,40 @@ class ExpenditureAnalyzer(QMainWindow):
         
         main_layout.addLayout(main_frame)
         
-        # 初始化日志记录器（在创建log_text之后）
-        self.logger = Logger(self.log_text)
+        # 如果外部注入了 logger，使用 signal 方案把日志发送到 UI（跨线程安全）
+        try:
+            from common.logger import add_qt_signal
+            if getattr(self, 'logger', None):
+                try:
+                    # 将 logger 的 signal 处理器与本窗口的 log_signal 绑定
+                    add_qt_signal(self.logger, self.log_signal)
+                except Exception:
+                    pass
+                try:
+                    # 将 signal 连接到窗口内部的 append 方法
+                    self.log_signal.connect(self._append_log)
+                except Exception:
+                    pass
+                self.logger.info("三保支出进度工具启动")
+            else:
+                # 兼容：若未注入 logger，则创建并使用 signal 方案
+                from common.logger import get_logger
+                self.logger = get_logger('Sanbao')
+                try:
+                    add_qt_signal(self.logger, self.log_signal)
+                except Exception:
+                    pass
+                try:
+                    self.log_signal.connect(self._append_log)
+                except Exception:
+                    pass
+                self.logger.info("三保支出进度工具启动")
+        except Exception:
+            pass
         
-        # 记录程序启动日志
-        self.logger.info("三保支出进度工具启动")
-        
-        # 应用样式表
-        self.setStyleSheet("""
-            QMainWindow {
-                background-color: #F3F4F6;
-            }
-            QWidget {
-                background-color: #F3F4F6;
-                font-family: "Segoe UI";
-                font-size: 10pt;
-            }
-            QLineEdit {
-                padding: 5px;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                background-color: white;
-            }
-            QGroupBox {
-                font-weight: bold;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                margin-top: 1ex;
-                background-color: white;
-                font-size: 11pt;
-            }
-            QGroupBox::title {
-                subcontrol-origin: margin;
-                left: 10px;
-                padding: 0 5px 0 5px;
-            }
-            QTextEdit {
-                background-color: #FFFFFF;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                font-family: Consolas, Monaco, monospace;
-                font-size: 9pt;
-            }
-        """)
+        # 全局样式通过 common/style.qss 加载于应用入口处，模块内不再使用大量内联样式
+        # 如需模块特定覆盖，可设置 objectName 或 property 后在 common/style.qss 中添加选择器
+        central_widget.setObjectName('sanbao_central')
     
     def _create_control_frame(self):
         """创建顶部控制区域"""
@@ -270,24 +259,29 @@ class ExpenditureAnalyzer(QMainWindow):
         layout.setSpacing(10)
         
         frame = QGroupBox("日志信息")
-        
+
         # 创建文本框用于显示日志
         self.log_text = QTextEdit()
         self.log_text.setReadOnly(True)
         self.log_text.setMaximumHeight(200)
         self.log_text.setObjectName("log_text")
-        self.log_text.setStyleSheet("""
-            #log_text {
-                background-color: #FFFFFF;
-                border: 1px solid #CCCCCC;
-                border-radius: 4px;
-                font-family: Consolas, Monaco, monospace;
-                font-size: 9pt;
-            }
-        """)
-        
+
         frame.setLayout(QVBoxLayout())
         frame.layout().addWidget(self.log_text)
+
+        # 添加日志操作按钮（清空 / 导出）
+        ops_layout = QHBoxLayout()
+        ops_layout.setSpacing(6)
+        clear_btn = ControlButton(self, "清空日志", width=10)
+        clear_btn.clicked.connect(lambda: self.log_text.clear())
+        ops_layout.addWidget(clear_btn)
+
+        export_btn = ControlButton(self, "导出日志", width=10)
+        export_btn.clicked.connect(self._export_log)
+        ops_layout.addWidget(export_btn)
+
+        ops_layout.addStretch()
+        frame.layout().addLayout(ops_layout)
         layout.addWidget(frame)
         
         # 添加初始日志
@@ -297,7 +291,26 @@ class ExpenditureAnalyzer(QMainWindow):
     
     def _log_message(self, message):
         """向日志窗口添加消息"""
-        self.logger.info(message)
+        # 统一通过 logger 输出，logger 的 QtSignalHandler 会转发到 log_signal
+        try:
+            if getattr(self, 'logger', None):
+                self.logger.info(message)
+        except Exception:
+            pass
+
+    def _append_log(self, message: str):
+        """将来自 log_signal 的日志追加到 QTextEdit（在主线程执行）。"""
+        try:
+            if getattr(self, 'log_text', None) is not None:
+                self.log_text.append(message)
+                try:
+                    self.log_text.verticalScrollBar().setValue(
+                        self.log_text.verticalScrollBar().maximum()
+                    )
+                except Exception:
+                    pass
+        except Exception:
+            pass
 
     def _choose_input_file(self):
         """弹出文件选择对话框，让用户选择输入的 Excel 文件"""
@@ -317,6 +330,8 @@ class ExpenditureAnalyzer(QMainWindow):
         layout.setSpacing(10)
         
         frame = QGroupBox("4.预算单位（可选）")
+        # 保存引用以便更新标题（已选计数）
+        self.units_frame = frame
         
         # 添加全选/取消按钮行
         btn_layout = QHBoxLayout()
@@ -332,24 +347,32 @@ class ExpenditureAnalyzer(QMainWindow):
         
         # 添加标签显示"*不选择按三保标识汇总"
         label = QLabel("*不选择按三保标识汇总")
-        label.setStyleSheet("""
-            QLabel {
-                color: #666666;
-                font-style: italic;
-                margin-left: 10px;
-            }
-        """)
+        label.setObjectName('muted')
         btn_layout.addWidget(label)
-        
+        # 在同一行放置搜索框于右侧
+        self.units_search = QLineEdit()
+        self.units_search.setFixedWidth(220)
+        self.units_search.setPlaceholderText("搜索预算单位...")
         btn_layout.addStretch()
+        btn_layout.addWidget(self.units_search)
+
         frame.setLayout(QVBoxLayout())
         frame.layout().addLayout(btn_layout)
-        
-        # 创建可滚动的复选框区域
-        self.scroll_units = ScrollableFrame(self)
-        frame.layout().addWidget(self.scroll_units)
-        
-        self.units_inner_layout = self.scroll_units.get_layout()
+
+        # 使用 QStandardItemModel + QSortFilterProxyModel 支持搜索和复选
+        self.units_model = QStandardItemModel(self)
+        self.units_proxy = QSortFilterProxyModel(self)
+        self.units_proxy.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.units_proxy.setSourceModel(self.units_model)
+
+        self.units_view = QListView()
+        self.units_view.setModel(self.units_proxy)
+        self.units_view.setEditTriggers(QListView.EditTrigger.NoEditTriggers)
+        frame.layout().addWidget(self.units_view)
+
+        # 连接搜索框
+        self.units_search.textChanged.connect(self.units_proxy.setFilterFixedString)
+
         layout.addWidget(frame)
         
         return layout
@@ -360,30 +383,47 @@ class ExpenditureAnalyzer(QMainWindow):
         layout.setSpacing(10)
         
         frame = QGroupBox("3.三保标识（必选）")
-        
-        # 添加全选/取消按钮行
+        # 保存引用以便更新标题（已选计数）
+        self.types_frame = frame
+
+        # 添加全选/取消按钮行，并把搜索框放到右侧
         btn_layout = QHBoxLayout()
         btn_layout.setSpacing(5)
-        
+
         select_all = ControlButton(self, "全选", width=8)
         select_all.clicked.connect(lambda: self._toggle_all_types(True))
         btn_layout.addWidget(select_all)
-        
+
         select_none = ControlButton(self, "取消全选", width=8)
         select_none.clicked.connect(lambda: self._toggle_all_types(False))
         btn_layout.addWidget(select_none)
-        
+
+        # 搜索框（放在按钮行右侧）
+        self.types_search = QLineEdit()
+        self.types_search.setFixedWidth(220)
+        self.types_search.setPlaceholderText("搜索三保标识...")
         btn_layout.addStretch()
+        btn_layout.addWidget(self.types_search)
+
         frame.setLayout(QVBoxLayout())
         frame.layout().addLayout(btn_layout)
-        
-        # 创建可滚动的复选框区域
-        self.scroll_types = ScrollableFrame(self)
-        frame.layout().addWidget(self.scroll_types)
-        
-        self.types_inner_layout = self.scroll_types.get_layout()
+
+        # 使用 model + proxy + listview 展示三保标识（支持搜索和复选）
+        self.types_model = QStandardItemModel(self)
+        self.types_proxy = QSortFilterProxyModel(self)
+        self.types_proxy.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.types_proxy.setSourceModel(self.types_model)
+
+        self.types_view = QListView()
+        self.types_view.setModel(self.types_proxy)
+        self.types_view.setEditTriggers(QListView.EditTrigger.NoEditTriggers)
+        frame.layout().addWidget(self.types_view)
+
+        # 连接搜索框
+        self.types_search.textChanged.connect(self.types_proxy.setFilterFixedString)
+
         layout.addWidget(frame)
-        
+
         return layout
     
     def _create_button_frame(self):
@@ -391,9 +431,10 @@ class ExpenditureAnalyzer(QMainWindow):
         layout = QHBoxLayout()
         layout.addStretch()
         
-        analyze_btn = ControlButton(self, "5.分析并导出", width=BUTTON_WIDTH)
-        analyze_btn.clicked.connect(self._run_analysis)
-        layout.addWidget(analyze_btn)
+        self.analyze_btn = ControlButton(self, "5.分析并导出", width=BUTTON_WIDTH)
+        self.analyze_btn.setObjectName('analyze_btn')
+        self.analyze_btn.clicked.connect(self._run_analysis)
+        layout.addWidget(self.analyze_btn)
         
         # 添加退出按钮
         exit_btn = ControlButton(self, "退出", width=BUTTON_WIDTH)
@@ -426,138 +467,120 @@ class ExpenditureAnalyzer(QMainWindow):
             
             self.logger.info(f"已更新三保标识 ({len(types)} 个) 和预算单位 ({len(units)} 个) 复选框")
 
+            # 加载后更新预览表（前50行）并启用分析按钮
+            try:
+                self._populate_preview(self.df, rows=50)
+            except Exception:
+                pass
+            try:
+                self.analyze_btn.setEnabled(True)
+            except Exception:
+                pass
+
+            # 更新 GroupBox 标题初始计数
+            try:
+                self.units_frame.setTitle(f"4.预算单位（可选, 已选 0/{len(units)}）")
+            except Exception:
+                pass
+            try:
+                self.types_frame.setTitle(f"3.三保标识（必选, 已选 0/{len(types)}）")
+            except Exception:
+                pass
+
         except Exception as e:
             self.logger.error(f"加载数据失败: {str(e)}")
             QMessageBox.critical(self, "错误", str(e))
+
+    def _populate_preview(self, df: pd.DataFrame, rows: int = 50):
+        """在预览表中显示 DataFrame 的前几行"""
+        try:
+            head = df.head(rows)
+            model = PandasModel(head)
+            self.preview_view.setModel(model)
+            try:
+                self.preview_view.resizeColumnsToContents()
+            except Exception:
+                pass
+        except Exception as e:
+            try:
+                self.logger.error(f"填充预览表出错: {str(e)}")
+            except Exception:
+                pass
     
     def _create_unit_checkboxes(self, units):
-        """创建预算单位复选框（两列布局）"""
-        # 清除现有复选框
-        for i in reversed(range(self.units_inner_layout.count())): 
-            widget = self.units_inner_layout.itemAt(i).widget()
-            if widget:
-                widget.setParent(None)
+        """用 model 创建预算单位项（可搜索、可复选）"""
+        # 清空旧模型
+        try:
+            self.units_model.clear()
+        except Exception:
+            pass
         self.checkboxes_units.clear()
-        
-        # 创建新的复选框（单列垂直显示）
+
         for unit in units:
-            cb = QCheckBox(unit)
-            cb.setStyleSheet("""
-                QCheckBox {
-                    spacing: 5px;
-                    padding: 2px;
-                    border-radius: 4px;
-                }
-                QCheckBox::indicator {
-                    width: 14px;
-                    height: 14px;
-                }
-                QCheckBox::indicator:unchecked {
-                    border: 2px solid #666666;
-                    background-color: white;
-                }
-                QCheckBox::indicator:checked {
-                    border: 2px solid #4CAF50;
-                    background-color: #4CAF50;
-                }
-                QCheckBox::indicator:checked::after {
-                    content: "✓";
-                    color: black;
-                    font-weight: bold;
-                    position: absolute;
-                    left: 1px;
-                    top: -3px;
-                    font-size: 14px;
-                    line-height: 14px;
-                }
-                QCheckBox:hover {
-                    background-color: #f0f0f0;
-                }
-                QCheckBox:checked {
-                    background-color: #e8f5e9;
-                    font-weight: bold;
-                }
-            """)
-            cb.stateChanged.connect(self._update_selected_units)
-            self.checkboxes_units[unit] = cb
-            # 单列垂直排列，左对齐
-            self.units_inner_layout.addWidget(cb)
-            
-        # 记录日志
-        # self._log_message(f"已创建 {len(units)} 个预算单位复选框")
+            item = QStandardItem(str(unit))
+            item.setCheckable(True)
+            item.setCheckState(Qt.CheckState.Unchecked)
+            # 把原来的字典 key 保留以兼容旧逻辑（值为 None）
+            self.checkboxes_units[unit] = None
+            self.units_model.appendRow(item)
+
+        # 连接 itemChanged 信号以跟踪选择，先尝试断开已有连接以避免重复调用
+        try:
+            try:
+                self.units_model.itemChanged.disconnect(self._on_unit_item_changed)
+            except Exception:
+                pass
+            self.units_model.itemChanged.connect(self._on_unit_item_changed)
+        except Exception:
+            pass
     
     def _create_type_checkboxes(self, types):
-        """创建三保标识复选框（单列布局）"""
-        # 清除现有复选框
-        for i in reversed(range(self.types_inner_layout.count())):
-            widget = self.types_inner_layout.itemAt(i).widget()
-            if widget:
-                widget.setParent(None)
+        """使用 model 创建三保标识项（可搜索、可复选）"""
+        # 清空旧模型
+        try:
+            self.types_model.clear()
+        except Exception:
+            pass
         self.checkboxes_types.clear()
-        
-        # 创建新的复选框
+
         filtered_types = [t for t in types if not str(t).startswith('[000]')]
         for type_name in filtered_types:
-            cb = QCheckBox(str(type_name))
-            cb.setStyleSheet("""
-                QCheckBox {
-                    spacing: 5px;
-                    padding: 2px;
-                    border-radius: 4px;
-                }
-                QCheckBox::indicator {
-                    width: 14px;
-                    height: 14px;
-                }
-                QCheckBox::indicator:unchecked {
-                    border: 2px solid #666666;
-                    background-color: white;
-                }
-                QCheckBox::indicator:checked {
-                    border: 2px solid #4CAF50;
-                    background-color: #4CAF50;
-                }
-                QCheckBox::indicator:checked::after {
-                    content: "✓";
-                    color: black;
-                    font-weight: bold;
-                    position: absolute;
-                    left: 1px;
-                    top: -3px;
-                    font-size: 14px;
-                    line-height: 14px;
-                }
-                QCheckBox:hover {
-                    background-color: #f0f0f0;
-                }
-                QCheckBox:checked {
-                    background-color: #e8f5e9;
-                    font-weight: bold;
-                }
-            """)
-            cb.stateChanged.connect(self._update_selected_types)
-            self.checkboxes_types[type_name] = cb
-            self.types_inner_layout.addWidget(cb)
-            
-        # 记录日志
-        # self._log_message(f"已创建 {len(filtered_types)} 个三保标识复选框 (过滤了[000]开头的项)")
+            item = QStandardItem(str(type_name))
+            item.setCheckable(True)
+            item.setCheckState(Qt.CheckState.Unchecked)
+            self.checkboxes_types[type_name] = None
+            self.types_model.appendRow(item)
+
+        try:
+            try:
+                self.types_model.itemChanged.disconnect(self._on_type_item_changed)
+            except Exception:
+                pass
+            self.types_model.itemChanged.connect(self._on_type_item_changed)
+        except Exception:
+            pass
     
     def _toggle_all_units(self, state: bool):
         """切换所有预算单位的选择状态"""
         # 设置标志以抑制更新日志
         self._suppress_log = True
         try:
-            for cb in self.checkboxes_units.values():
-                cb.setChecked(state)
-            
+            # 针对 model 中的项设置选中状态
+            try:
+                for i in range(self.units_model.rowCount()):
+                    item = self.units_model.item(i)
+                    item.setCheckState(Qt.CheckState.Checked if state else Qt.CheckState.Unchecked)
+            except Exception:
+                pass
+
             # 手动更新选择列表
-            self.selected_units = list(self.checkboxes_units.keys()) if state else []
-            
+            self.selected_units = [self.units_model.item(i).text() for i in range(self.units_model.rowCount())] if state else []
+
             # 记录全选/取消全选操作
             if state:
-                self.logger.info(f"预算单位全选: 共 {len(self.checkboxes_units)} 个单位")
+                self.logger.info(f"预算单位全选: 共 {self.units_model.rowCount()} 个单位")
             else:
-                self.logger.info(f"预算单位取消全选: 共 {len(self.checkboxes_units)} 个单位")
+                self.logger.info(f"预算单位取消全选: 共 {self.units_model.rowCount()} 个单位")
         finally:
             # 恢复日志记录
             self._suppress_log = False
@@ -567,17 +590,20 @@ class ExpenditureAnalyzer(QMainWindow):
         # 设置标志以抑制更新日志
         self._suppress_log = True
         try:
-            for cb in self.checkboxes_types.values():
-                cb.setChecked(state)
-            
-            # 手动更新选择列表
-            self.selected_types = list(self.checkboxes_types.keys()) if state else []
-            
-            # 记录全选/取消全选操作
+            # 使用 model 设置选中状态
+            try:
+                for i in range(self.types_model.rowCount()):
+                    item = self.types_model.item(i)
+                    item.setCheckState(Qt.CheckState.Checked if state else Qt.CheckState.Unchecked)
+            except Exception:
+                pass
+
+            self.selected_types = [self.types_model.item(i).text() for i in range(self.types_model.rowCount())] if state else []
+
             if state:
-                self.logger.info(f"三保标识全选: 共 {len(self.checkboxes_types)} 个标识")
+                self.logger.info(f"三保标识全选: 共 {self.types_model.rowCount()} 个标识")
             else:
-                self.logger.info(f"三保标识取消全选: 共 {len(self.checkboxes_types)} 个标识")
+                self.logger.info(f"三保标识取消全选: 共 {self.types_model.rowCount()} 个标识")
         finally:
             # 恢复日志记录
             self._suppress_log = False
@@ -585,31 +611,92 @@ class ExpenditureAnalyzer(QMainWindow):
     def _update_selected_units(self):
         """更新已选择的预算单位列表"""
         old_count = len(self.selected_units)
-        self.selected_units = [
-            unit for unit, cb in self.checkboxes_units.items()
-            if cb.isChecked()
-        ]
+        # 从 model 中收集已选项
+        selected = []
+        try:
+            for i in range(self.units_model.rowCount()):
+                item = self.units_model.item(i)
+                if item.checkState() == Qt.CheckState.Checked:
+                    selected.append(item.text())
+        except Exception:
+            pass
+        self.selected_units = selected
         new_count = len(self.selected_units)
         
         # 只有当选择数量发生变化且不是全选/取消全选操作时才记录日志
         if old_count != new_count and not self._suppress_log:
             self.logger.info(f"预算单位: 当前已选择 {new_count} 个单位")
+        # 更新 GroupBox 标题中的已选计数
+        try:
+            total = self.units_model.rowCount() if hasattr(self, 'units_model') else len(self.checkboxes_units)
+            self.units_frame.setTitle(f"4.预算单位（可选, 已选 {new_count}/{total}）")
+        except Exception:
+            pass
     
     def _update_selected_types(self):
         """更新已选择的三保标识列表"""
         old_count = len(self.selected_types)
-        self.selected_types = [
-            type_name for type_name, cb in self.checkboxes_types.items()
-            if cb.isChecked()
-        ]
+        # 从 model 中收集已选项（如果 types_model 存在，否则回退到 checkbox 字典）
+        selected = []
+        try:
+            if hasattr(self, 'types_model') and self.types_model.rowCount() > 0:
+                for i in range(self.types_model.rowCount()):
+                    item = self.types_model.item(i)
+                    if item.checkState() == Qt.CheckState.Checked:
+                        selected.append(item.text())
+            else:
+                selected = [t for t, cb in self.checkboxes_types.items() if cb.isChecked()]
+        except Exception:
+            selected = [t for t, cb in self.checkboxes_types.items() if cb.isChecked()]
+
+        self.selected_types = selected
         new_count = len(self.selected_types)
         
         # 只有当选择数量发生变化且不是全选/取消全选操作时才记录日志
         if old_count != new_count and not self._suppress_log:
             self.logger.info(f"三保标识: 当前已选择 {new_count} 个标识")
+        # 更新 GroupBox 标题中的已选计数
+        try:
+            total = self.types_model.rowCount() if hasattr(self, 'types_model') else len(self.checkboxes_types)
+            self.types_frame.setTitle(f"3.三保标识（必选, 已选 {new_count}/{total}）")
+        except Exception:
+            pass
+
+    def _on_unit_item_changed(self, item):
+        """当 model 的项变化（选中/取消选中）时调用，代理到选择更新函数"""
+        # 更新视觉反馈：选中时设置淡色背景，否则清除背景
+        try:
+            if item.checkState() == Qt.CheckState.Checked:
+                item.setBackground(QBrush(QColor('#e6f7ff')))
+            else:
+                # 透明背景
+                item.setBackground(QBrush(QColor(0, 0, 0, 0)))
+        except Exception:
+            pass
+        # 仅在非抑制日志时记录
+        self._update_selected_units()
+
+    def _on_type_item_changed(self, item):
+        """当三保标识 model 的项变化时更新选择列表"""
+        try:
+            if item.checkState() == Qt.CheckState.Checked:
+                item.setBackground(QBrush(QColor('#e6f7ff')))
+            else:
+                item.setBackground(QBrush(QColor(0, 0, 0, 0)))
+        except Exception:
+            pass
+        self._update_selected_types()
     
     def _run_analysis(self):
         """运行分析并导出结果"""
+        # 防止重复启动：如果已有分析在运行则提示并返回
+        try:
+            if getattr(self, 'worker', None) and getattr(self.worker, 'isRunning', lambda: False)():
+                QMessageBox.warning(self, "提示", "已有分析正在运行，请等待完成或取消")
+                return
+        except Exception:
+            pass
+
         # 三保标识为必选项，预算单位为可选项
         if not self.selected_types:
             self.logger.error("分析失败: 未选择任何三保标识")
@@ -632,6 +719,11 @@ class ExpenditureAnalyzer(QMainWindow):
         
         self.worker.start()
         self.progress_dialog.show()
+        # 禁用分析按钮，直到分析完成或失败
+        try:
+            self.analyze_btn.setEnabled(False)
+        except Exception:
+            pass
     
     def _analysis_completed(self, summary):
         """分析完成回调"""
@@ -663,6 +755,12 @@ class ExpenditureAnalyzer(QMainWindow):
             error_msg = f"分析完成后处理出错: {str(e)}"
             self.logger.error(error_msg)
             QMessageBox.critical(self, "错误", f"{error_msg}\n\n详细信息: {str(e)}")
+        finally:
+            # 恢复分析按钮可用
+            try:
+                self.analyze_btn.setEnabled(True)
+            except Exception:
+                pass
     
     def _analysis_failed(self, error_msg):
         """分析失败回调"""
@@ -678,6 +776,47 @@ class ExpenditureAnalyzer(QMainWindow):
             
         self.logger.error(f"分析过程出错: {error_msg}")
         QMessageBox.critical(self, "错误", f"分析过程中发生错误:\n{error_msg}")
+        try:
+            self.analyze_btn.setEnabled(True)
+        except Exception:
+            pass
+
+    def closeEvent(self, event):
+        """窗口关闭时清理：移除 logger 的 QTextEdit handler，终止运行中的线程"""
+        try:
+            # 如果有正在运行的 worker，尝试终止
+            if getattr(self, 'worker', None):
+                try:
+                    if getattr(self.worker, 'isRunning', lambda: False)():
+                        try:
+                            self.worker.terminate()
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+
+            # 从全局 logger 中移除与本窗口 QTextEdit 绑定的 handler，避免 handler 泄露
+            try:
+                from common.logger import QtWidgetHandler, QtSignalHandler
+                if getattr(self, 'logger', None):
+                    for h in list(self.logger.handlers):
+                        try:
+                            # 移除与本窗口 QTextEdit 绑定的 widget handler
+                            if isinstance(h, QtWidgetHandler) and getattr(h, 'text_widget', None) is self.log_text:
+                                self.logger.removeHandler(h)
+                            # 移除绑定到本窗口 signal 的 signal handler
+                            if isinstance(h, QtSignalHandler) and getattr(h, 'signal', None) is self.log_signal:
+                                self.logger.removeHandler(h)
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+        except Exception:
+            pass
+        try:
+            super().closeEvent(event)
+        except Exception:
+            event.accept()
     
     def _choose_output(self) -> Optional[str]:
         """选择输出文件位置"""
@@ -694,6 +833,21 @@ class ExpenditureAnalyzer(QMainWindow):
             self.logger.info(f"已选择输出文件路径: {path}")
             return path
         return None if path else None
+
+    def _export_log(self):
+        """导出日志文本到文件"""
+        try:
+            default_name = f"sanbao_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+            path, _ = QFileDialog.getSaveFileName(self, "导出日志", default_name, "Text files (*.txt);;All files (*.*)")
+            if path:
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(self.log_text.toPlainText())
+                QMessageBox.information(self, "成功", f"日志已保存到:\n{path}")
+        except Exception as e:
+            try:
+                self.logger.error(f"导出日志失败: {str(e)}")
+            except Exception:
+                pass
 
 
 def load_exported_data(path: Optional[str] = None) -> pd.DataFrame:
@@ -778,6 +932,9 @@ def analyze_expenditure(df: pd.DataFrame, selected_units: List[str], selected_ty
         summary = summary.sort_values(['三保标识'])
     
     return summary[RESULT_COLS if selected_units else [col for col in RESULT_COLS if col != '预算单位']]
+
+
+    
 
 
 def save_to_excel(summary: pd.DataFrame, output_path: str) -> str:
@@ -922,3 +1079,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
