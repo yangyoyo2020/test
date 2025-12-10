@@ -13,6 +13,8 @@ from sanbao_test.app_copy import ExpenditureAnalyzer
 from kjhs_test.pld_pyqt6 import MainWindow
 from json_to_excel.json_to_excel_pyqt import JSONToExcelConverter
 from common.logger import get_logger
+# 导入运维记录簿主窗口
+from ywjlb.ywjlb_ui import YWJLBAnalyzer
 
 
 class UnifiedLoginWindow(QMainWindow):
@@ -24,6 +26,7 @@ class UnifiedLoginWindow(QMainWindow):
         self.sanbao_window = None
         self.kjhs_window = None
         self.json_window = None
+        self.ywjlb_window = None
         self.init_ui()
         
     def init_ui(self):
@@ -64,7 +67,7 @@ class UnifiedLoginWindow(QMainWindow):
         grid_layout.setSpacing(12)
         
         # 三保支出分析按钮
-        sanbao_btn = AnimatedButton("三保支出进度工具")
+        sanbao_btn = AnimatedButton("1.三保支出进度工具")
         sanbao_btn.setMinimumHeight(80)
         sanbao_btn.clicked.connect(self.open_sanbao_module)
         # 使用全局样式，设置 variant 以选择次级样式（green）
@@ -73,7 +76,7 @@ class UnifiedLoginWindow(QMainWindow):
         grid_layout.addWidget(sanbao_btn, 0, 0)
         
         # 会计核算偏离度工具按钮
-        kjhs_btn = AnimatedButton("会计核算偏离度工具")
+        kjhs_btn = AnimatedButton("2.会计核算偏离度工具")
         kjhs_btn.setMinimumHeight(80)
         kjhs_btn.clicked.connect(self.open_kjhs_module)
         kjhs_btn.setProperty('variant', 'primary')
@@ -81,22 +84,37 @@ class UnifiedLoginWindow(QMainWindow):
         grid_layout.addWidget(kjhs_btn, 0, 1)
         
         # JSON转Excel按钮
-        json_btn = AnimatedButton("JSON转Excel工具")
+        json_btn = AnimatedButton("3.JSON转Excel工具")
         json_btn.setMinimumHeight(80)
         json_btn.clicked.connect(self.open_json_module)
         json_btn.setProperty('variant', 'warning')
         json_btn.setObjectName('main_json_btn')
         grid_layout.addWidget(json_btn, 1, 0)
         
-        # 退出按钮
+        # 运维记录簿按钮
+        ywjlb_btn = AnimatedButton("4.运维记录表转换工具")
+        ywjlb_btn.setMinimumHeight(80)
+        ywjlb_btn.clicked.connect(self.open_ywjlb_module)
+        ywjlb_btn.setProperty('variant', 'info')
+        ywjlb_btn.setObjectName('main_ywjlb_btn')
+        grid_layout.addWidget(ywjlb_btn, 1, 1)
+        
+        # （退出按钮已移到卡片底部右侧，和其他工具分离）
+        
+        card_layout.addLayout(grid_layout)
+
+        # 在卡片底部添加一个右对齐的退出按钮，使其独立于工具网格
+        card_layout.addStretch()
+        footer_layout = QHBoxLayout()
+        footer_layout.setContentsMargins(0, 0, 0, 0)
+        footer_layout.addStretch()
         exit_btn = AnimatedButton("退出系统")
-        exit_btn.setMinimumHeight(80)
+        exit_btn.setMinimumHeight(40)
         exit_btn.clicked.connect(self.close)
         exit_btn.setProperty('variant', 'danger')
         exit_btn.setObjectName('main_exit_btn')
-        grid_layout.addWidget(exit_btn, 1, 1)
-        
-        card_layout.addLayout(grid_layout)
+        footer_layout.addWidget(exit_btn)
+        card_layout.addLayout(footer_layout)
 
         # 将卡片添加到外层布局
         outer_layout.addWidget(card)
@@ -144,6 +162,10 @@ class UnifiedLoginWindow(QMainWindow):
         
     def open_json_module(self):
         open_or_activate(self, 'json_window', lambda: JSONToExcelConverter(logger=getattr(self, 'logger', None)))
+
+    def open_ywjlb_module(self):
+        # 打开运维记录表窗口
+        open_or_activate(self, 'ywjlb_window', lambda: YWJLBAnalyzer())
 
 
 def main():

@@ -3,11 +3,12 @@ import pandas as pd
 import json
 from pathlib import Path
 from PyQt6.QtWidgets import (QApplication, QWidget, QVBoxLayout, QPushButton, 
-                             QLabel, QFileDialog, QMessageBox, QFrame, QProgressDialog, QTextEdit, QGroupBox, QHBoxLayout, QSizePolicy)
+                             QLabel, QFileDialog, QMessageBox, QFrame, QProgressDialog, QTextEdit, QGroupBox, QHBoxLayout, QSizePolicy, QLineEdit, QCheckBox, QComboBox)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QFont
 from common.logger import get_logger, add_qt_text_widget, add_qt_signal
 from sanbao_test.gui_utils import ControlButton, create_separator, LabeledFrame
+from json_to_excel import convert_flat, normalize_top_items
 
 
 class ConversionWorker(QThread):
@@ -15,12 +16,19 @@ class ConversionWorker(QThread):
     progress_updated = pyqtSignal(int)
     conversion_finished = pyqtSignal(bool, str)
 
-    def __init__(self, json_path, excel_path, logger=None):
+    def __init__(self, json_path, excel_path, logger=None, mode='flat', numeric_cols=None, date_cols=None, split_fields=None, dedupe_by=None, raw_sheet=False):
         super().__init__()
         self.json_path = json_path
         self.excel_path = excel_path
         # 使用外部传入的 logger（如果提供）以避免重复初始化
         self.logger = logger
+        self.mode = mode
+        # 接受逗号分隔字符串或列表
+        self.numeric_cols = numeric_cols or []
+        self.date_cols = date_cols or []
+        self.split_fields = split_fields or []
+        self.dedupe_by = dedupe_by or []
+        self.raw_sheet = raw_sheet
 
     def run(self):
         try:
@@ -30,24 +38,29 @@ class ConversionWorker(QThread):
             self.progress_updated.emit(10)
             with open(self.json_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-            
             # 标准化数据 (30%)
             self.progress_updated.emit(30)
-            normalized_data = self.normalize_json(data)
-            
-            # 转换为DataFrame (50%)
+            items = normalize_top_items(data)
+
+            # 转换并写入 Excel (50% -> 100%)
             self.progress_updated.emit(50)
-            if isinstance(normalized_data, list):
-                df = pd.DataFrame(normalized_data)
-            elif isinstance(normalized_data, dict):
-                df = pd.DataFrame([normalized_data])
+            # 选择模式并调用 core
+            raw_text = json.dumps(data, ensure_ascii=False) if self.raw_sheet else None
+            if self.mode == 'flat':
+                df, report = convert_flat(items, Path(self.excel_path), numeric_cols=self.numeric_cols, date_cols=self.date_cols, dedupe_by=self.dedupe_by, raw_text=raw_text)
             else:
-                self.conversion_finished.emit(False, "不支持的 JSON 数据格式！")
-                return
-            
-            # 保存为Excel (80%)
-            self.progress_updated.emit(80)
-            df.to_excel(self.excel_path, index=False)
+                # 延迟导入以避免循环依赖
+                from json_to_excel.core import convert_multi
+                parent_df, children, report = convert_multi(items, Path(self.excel_path), numeric_cols=self.numeric_cols, date_cols=self.date_cols, dedupe_by=self.dedupe_by, split_fields=self.split_fields, raw_text=raw_text)
+            # 写入完成时进度设为 100
+            self.progress_updated.emit(100)
+
+            # 记录报告到 logger（UI 的日志系统会接收）
+            if getattr(self, 'logger', None):
+                try:
+                    self.logger.info('转换报告: ' + json.dumps(report, ensure_ascii=False))
+                except Exception:
+                    self.logger.info('转换完成，报告已生成')
             
             # 完成 (100%)
             self.progress_updated.emit(100)
@@ -179,12 +192,12 @@ class JSONToExcelConverter(QWidget):
         main_layout.addWidget(desc_label)
 
         # 文件选择（使用 LabeledFrame 或 GroupBox风格）
-        file_frame = LabeledFrame(self, "选择导入JSON文件")
+        file_frame = LabeledFrame(self, "1.选择导入JSON文件")
         file_layout = file_frame.content_layout
         file_layout.setSpacing(8)
 
         # 使用 ControlButton 与统一样式
-        self.select_btn = ControlButton(self, "1. 浏览..", width=14)
+        self.select_btn = ControlButton(self, "浏览..", width=10)
 
         # 在路径前显示 "文件选择:" 字眼以增强语义
         self.file_label = QLabel("文件选择: 未选择文件")
@@ -202,10 +215,45 @@ class JSONToExcelConverter(QWidget):
         file_layout.addLayout(file_row)
         main_layout.addWidget(file_frame)
 
+        # 转换选项区域
+        options_frame = LabeledFrame(self, "转换选项（高级）")
+        opts = options_frame.content_layout
+        # 模式选择
+
+        # 新增：导出文件路径区域
+        export_frame = LabeledFrame(self, "2.导出Excel文件路径")
+        export_layout = export_frame.content_layout
+        export_layout.setSpacing(8)
+        self.export_path_edit = QLineEdit()
+        self.export_path_edit.setPlaceholderText("请选择或输入导出文件路径（.xlsx）")
+        self.export_path_edit.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        self.export_btn = ControlButton(self, "浏览..", width=10)
+        export_row = QHBoxLayout()
+        export_row.setSpacing(8)
+        export_row.addWidget(self.export_path_edit)
+        export_row.addWidget(self.export_btn)
+        export_layout.addLayout(export_row)
+        main_layout.addWidget(export_frame)
+        mode_row = QHBoxLayout()
+        mode_row.addWidget(QLabel('模式:'))
+        self.mode_combo = QComboBox()
+        self.mode_combo.addItems(['flat', 'multi'])
+        mode_row.addWidget(self.mode_combo)
+        opts.addLayout(mode_row)
+
+
+        # 保留原始 JSON 复选框
+        raw_row = QHBoxLayout()
+        self.raw_checkbox = QCheckBox('在 Excel 中保留原始 JSON (raw_json sheet)')
+        raw_row.addWidget(self.raw_checkbox)
+        opts.addLayout(raw_row)
+
+        main_layout.addWidget(options_frame)
+
         # 操作按钮行（横向，与三保风格一致）
         btn_layout = QHBoxLayout()
         btn_layout.addStretch()
-        self.convert_btn = ControlButton(self, "2. 转换为 Excel文件", width=16)
+        self.convert_btn = ControlButton(self, "3.转换为 Excel文件", width=16)
         self.convert_btn.setEnabled(False)
         self.convert_btn.setProperty('variant', 'secondary')
         btn_layout.addWidget(self.convert_btn)
@@ -236,6 +284,7 @@ class JSONToExcelConverter(QWidget):
         # 连接信号和槽
         self.select_btn.clicked.connect(self.select_json_file)
         self.convert_btn.clicked.connect(self.convert_json_to_excel)
+        self.export_btn.clicked.connect(self.select_export_path)
 
     def select_json_file(self):
         file_path, _ = QFileDialog.getOpenFileName(
@@ -253,26 +302,43 @@ class JSONToExcelConverter(QWidget):
             self.file_label.setObjectName('file_selected')
             self.convert_btn.setEnabled(True)  # 启用转换按钮
 
+    def select_export_path(self):
+        # 如果已经选择了 JSON 文件，则使用该文件名作为默认导出名，并将目录设置为 JSON 文件所在目录
+        if getattr(self, 'json_file_path', None) and Path(self.json_file_path).exists():
+            default_filename = Path(self.json_file_path).stem + ".xlsx"
+            default_dir = str(Path(self.json_file_path).parent)
+        else:
+            default_filename = "output.xlsx"
+            default_dir = str(Path.home())
+        path, _ = QFileDialog.getSaveFileName(
+            self,
+            "选择导出 Excel 文件路径",
+            str(Path(default_dir) / default_filename),
+            "Excel 文件 (*.xlsx);;所有文件 (*)"
+        )
+        if path:
+            if not path.endswith('.xlsx'):
+                path += '.xlsx'
+            self.export_path_edit.setText(path)
     def convert_json_to_excel(self):
         if not self.json_file_path or not Path(self.json_file_path).exists():
             QMessageBox.critical(self, "错误", "请先选择一个有效的 JSON 文件！")
             return
-        
-        # 获取默认保存文件名（与JSON文件同名）
-        default_filename = Path(self.json_file_path).stem + ".xlsx"
-        default_dir = str(Path(self.json_file_path).parent)
-        
-        # 选择保存 Excel 的路径
-        save_path, _ = QFileDialog.getSaveFileName(
-            self,
-            "保存为 Excel 文件",
-            str(Path(default_dir) / default_filename),
-            "Excel 文件 (*.xlsx);;所有文件 (*)"
-        )
-        
+        # 优先使用界面输入的导出路径；若未填写则弹出保存对话框
+        save_path = getattr(self, 'export_path_edit', None) and self.export_path_edit.text().strip()
         if not save_path:
-            return  # 用户取消保存
-        
+            # 获取默认保存文件名（与JSON文件同名）
+            default_filename = Path(self.json_file_path).stem + ".xlsx"
+            default_dir = str(Path(self.json_file_path).parent)
+            save_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "保存为 Excel 文件",
+                str(Path(default_dir) / default_filename),
+                "Excel 文件 (*.xlsx);;所有文件 (*)"
+            )
+            if not save_path:
+                return  # 用户取消保存
+
         # 确保文件扩展名正确
         if not save_path.endswith('.xlsx'):
             save_path += '.xlsx'
@@ -290,8 +356,17 @@ class JSONToExcelConverter(QWidget):
         progress.setWindowModality(Qt.WindowModality.WindowModal)
         progress.setValue(0)
         
-        # 创建并启动转换线程（将 UI 层的 logger 传入 worker）
-        self.worker = ConversionWorker(self.json_file_path, save_path, logger=getattr(self, 'logger', None))
+        # 读取用户选项并转换为列表
+        # 由于相关输入控件已移除，直接设为空列表，或根据实际需求设置默认值
+        numeric_cols = []
+        date_cols = []
+        split_fields = []
+        dedupe_by = []
+        mode = self.mode_combo.currentText()
+        raw_sheet = bool(self.raw_checkbox.isChecked())
+
+        # 创建并启动转换线程（将 UI 层的 logger 传入 worker，并传入选项）
+        self.worker = ConversionWorker(self.json_file_path, save_path, logger=getattr(self, 'logger', None), mode=mode, numeric_cols=numeric_cols, date_cols=date_cols, split_fields=split_fields, dedupe_by=dedupe_by, raw_sheet=raw_sheet)
         self.worker.progress_updated.connect(progress.setValue)
         self.worker.conversion_finished.connect(self.on_conversion_finished)
         
