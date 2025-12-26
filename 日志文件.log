@@ -364,3 +364,1732 @@
 2025-12-10 22:08:55,813 - INFO - JSONToExcel UI 启动
 2025-12-10 22:08:58,260 - INFO - JSONToExcel UI 启动
 2025-12-10 22:09:08,793 - INFO - 应用程序已启动
+2025-12-11 10:31:34,237 - INFO - 应用程序已启动
+2025-12-11 10:31:37,578 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:16,862 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:21,328 - INFO - 应用程序已启动
+2025-12-11 10:33:23,725 - INFO - 三保支出进度工具启动
+2025-12-11 10:33:25,949 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:27,225 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:28,688 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:29,813 - INFO - JSONToExcel UI 启动
+2025-12-11 10:33:31,031 - INFO - JSONToExcel UI 启动
+2025-12-11 10:34:18,015 - INFO - 应用程序已启动
+2025-12-11 10:34:19,515 - INFO - 应用程序已启动
+2025-12-11 10:34:20,621 - INFO - 应用程序已启动
+2025-12-11 10:34:21,706 - INFO - 应用程序已启动
+2025-12-11 10:38:18,259 - INFO - JSONToExcel UI 启动
+2025-12-11 10:40:52,709 - INFO - JSONToExcel UI 启动
+2025-12-11 10:40:54,173 - INFO - JSONToExcel UI 启动
+2025-12-11 10:40:55,428 - INFO - JSONToExcel UI 启动
+2025-12-11 10:40:56,827 - INFO - JSONToExcel UI 启动
+2025-12-11 10:40:57,915 - INFO - JSONToExcel UI 启动
+2025-12-11 10:41:00,071 - INFO - JSONToExcel UI 启动
+2025-12-11 10:41:01,329 - INFO - JSONToExcel UI 启动
+2025-12-11 10:41:02,424 - INFO - JSONToExcel UI 启动
+2025-12-11 10:41:03,493 - INFO - JSONToExcel UI 启动
+2025-12-11 10:41:04,638 - INFO - 应用程序已启动
+2025-12-11 10:41:05,778 - INFO - 应用程序已启动
+2025-12-11 10:41:06,966 - INFO - 应用程序已启动
+2025-12-11 10:50:57,598 - INFO - 应用程序已启动
+2025-12-11 10:51:00,613 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:02,142 - INFO - 应用程序已启动
+2025-12-11 10:51:03,183 - INFO - 应用程序已启动
+2025-12-11 10:51:14,387 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:40,250 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:41,515 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:42,721 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:43,913 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:44,991 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:46,028 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:47,230 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:48,291 - INFO - JSONToExcel UI 启动
+2025-12-11 10:51:57,375 - INFO - 应用程序已启动
+2025-12-11 10:51:58,520 - INFO - 应用程序已启动
+2025-12-11 10:52:04,393 - INFO - 应用程序已启动
+2025-12-11 10:58:40,477 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 10:58:40,486 - INFO - 应用程序已启动
+2025-12-11 10:58:40,487 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 10:58:40,487 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 10:58:40,498 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 10:58:41,192 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 10:58:41,192 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 10:58:41,757 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 10:58:41,757 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 10:58:41,757 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 10:58:41,758 - INFO - 应用程序已启动
+2025-12-11 10:58:41,758 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 10:58:41,759 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 10:58:41,768 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 10:58:41,769 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 10:58:41,776 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 10:58:42,699 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 10:58:42,701 - INFO - 应用程序已启动
+2025-12-11 11:00:34,442 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:34,448 - INFO - 应用程序已启动
+2025-12-11 11:00:34,449 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:00:34,449 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:00:34,460 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:00:35,252 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:00:35,252 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:00:35,947 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:00:35,947 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:00:35,947 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:35,948 - INFO - 应用程序已启动
+2025-12-11 11:00:35,949 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:00:35,949 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:00:35,959 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:00:35,959 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:00:35,966 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:00:37,115 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:37,116 - INFO - 应用程序已启动
+2025-12-11 11:00:45,149 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:45,153 - INFO - 应用程序已启动
+2025-12-11 11:00:45,153 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:00:45,153 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:00:45,162 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:00:45,846 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:00:45,847 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:00:46,506 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:00:46,506 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:00:46,506 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:46,508 - INFO - 应用程序已启动
+2025-12-11 11:00:46,508 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:00:46,508 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:00:46,517 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:00:46,517 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:00:46,524 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:00:47,601 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:00:47,603 - INFO - 应用程序已启动
+2025-12-11 11:07:16,478 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:07:16,485 - INFO - 应用程序已启动
+2025-12-11 11:07:16,486 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:07:16,486 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:07:16,497 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:07:17,270 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:07:17,271 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:07:17,892 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:07:17,892 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:07:17,892 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:07:17,894 - INFO - 应用程序已启动
+2025-12-11 11:07:17,894 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:07:17,894 - INFO - [WindowUtils] 已连接 destroyed 信号: kjhs_window
+2025-12-11 11:07:17,905 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:07:17,906 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:07:17,914 - INFO - [WindowUtils] 窗口被销毁: kjhs_window
+2025-12-11 11:07:18,743 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:07:18,745 - INFO - 应用程序已启动
+2025-12-11 11:10:40,080 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:10:40,087 - INFO - 应用程序已启动
+2025-12-11 11:10:40,088 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:10:40,112 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:10:42,097 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:10:42,097 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:10:42,097 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:10:44,092 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:10:44,093 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:10:44,093 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:10:44,094 - INFO - 应用程序已启动
+2025-12-11 11:10:44,094 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:10:44,101 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:10:46,090 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:10:46,090 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:10:46,090 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:11:02,987 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:11:02,991 - INFO - 应用程序已启动
+2025-12-11 11:11:02,992 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:11:03,005 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:11:03,739 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:11:03,740 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:03,740 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:11:04,291 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:11:04,291 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:11:04,291 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:11:04,292 - INFO - 应用程序已启动
+2025-12-11 11:11:04,292 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:11:04,303 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:11:05,064 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:11:05,064 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:05,064 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:11:05,516 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:11:05,516 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:11:05,516 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:11:05,517 - INFO - 应用程序已启动
+2025-12-11 11:11:05,517 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:11:05,528 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:11:06,155 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:11:06,155 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:06,155 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:11:07,017 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:11:07,025 - INFO - JSONToExcel UI 启动
+2025-12-11 11:11:07,025 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:11:07,043 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:11:07,907 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:11:07,909 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:07,909 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:11:08,498 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-11 11:11:08,498 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:11:08,498 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:11:08,500 - INFO - JSONToExcel UI 启动
+2025-12-11 11:11:08,500 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:11:08,511 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:11:09,117 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:11:09,117 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:09,117 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:11:09,683 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-11 11:11:09,683 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:11:09,683 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:11:09,685 - INFO - JSONToExcel UI 启动
+2025-12-11 11:11:09,685 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:11:09,695 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:11:10,429 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:11:10,429 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:10,429 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:11:11,119 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:11:11,119 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:11:11,119 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:11:11,121 - INFO - 应用程序已启动
+2025-12-11 11:11:11,121 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:11:11,132 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:11:11,914 - INFO - 配置已更新 - 高偏离度阈值: 10.0%, 小数位数: 6
+2025-12-11 11:11:13,006 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:11:13,006 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:11:13,006 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:11:14,031 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-11 11:11:14,036 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-11 11:11:14,048 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-11 11:11:15,396 - INFO - 应用正常退出，退出代码: 0
+2025-12-11 11:36:31,550 - INFO - ============================================================
+2025-12-11 11:36:31,551 - INFO - 开始窗口生命周期测试
+2025-12-11 11:36:31,551 - INFO - ============================================================
+2025-12-11 11:36:31,551 - INFO - 
+【迭代 1/3】
+2025-12-11 11:36:31,551 - INFO -   [1.1] 打开会计核算工具...
+2025-12-11 11:36:31,552 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:36:31,560 - INFO - 应用程序已启动
+2025-12-11 11:36:31,561 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:36:31,574 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:36:32,575 - INFO -   [1.2] 关闭会计核算工具...
+2025-12-11 11:36:32,577 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:36:32,578 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:32,578 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:36:32,581 - INFO -   会计核算工具已关闭
+2025-12-11 11:36:33,582 - INFO -   [1.3] 打开JSON转Excel工具...
+2025-12-11 11:36:33,583 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:36:33,590 - INFO - JSONToExcel UI 启动
+2025-12-11 11:36:33,590 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:36:33,606 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:36:34,606 - INFO -   [1.4] 关闭JSON转Excel工具...
+2025-12-11 11:36:34,607 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:36:34,607 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:34,607 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:36:34,612 - INFO -   JSON转Excel工具已关闭
+2025-12-11 11:36:35,612 - INFO - 
+【迭代 2/3】
+2025-12-11 11:36:35,612 - INFO -   [2.1] 打开会计核算工具...
+2025-12-11 11:36:35,612 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:36:35,612 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:36:35,613 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:36:35,614 - INFO - 应用程序已启动
+2025-12-11 11:36:35,614 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:36:35,627 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:36:36,630 - INFO -   [2.2] 关闭会计核算工具...
+2025-12-11 11:36:36,631 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:36:36,631 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:36,631 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:36:36,635 - INFO -   会计核算工具已关闭
+2025-12-11 11:36:37,636 - INFO -   [2.3] 打开JSON转Excel工具...
+2025-12-11 11:36:37,636 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-11 11:36:37,636 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:36:37,637 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:36:37,638 - INFO - JSONToExcel UI 启动
+2025-12-11 11:36:37,638 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:36:37,655 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:36:38,658 - INFO -   [2.4] 关闭JSON转Excel工具...
+2025-12-11 11:36:38,659 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:36:38,659 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:38,659 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:36:38,664 - INFO -   JSON转Excel工具已关闭
+2025-12-11 11:36:39,664 - INFO - 
+【迭代 3/3】
+2025-12-11 11:36:39,664 - INFO -   [3.1] 打开会计核算工具...
+2025-12-11 11:36:39,664 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-11 11:36:39,665 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:36:39,665 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-11 11:36:39,666 - INFO - 应用程序已启动
+2025-12-11 11:36:39,666 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-11 11:36:39,674 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-11 11:36:40,674 - INFO -   [3.2] 关闭会计核算工具...
+2025-12-11 11:36:40,675 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-11 11:36:40,675 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:40,675 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-11 11:36:40,680 - INFO -   会计核算工具已关闭
+2025-12-11 11:36:41,680 - INFO -   [3.3] 打开JSON转Excel工具...
+2025-12-11 11:36:41,680 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-11 11:36:41,680 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-11 11:36:41,680 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-11 11:36:41,681 - INFO - JSONToExcel UI 启动
+2025-12-11 11:36:41,681 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-11 11:36:41,690 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-11 11:36:42,691 - INFO -   [3.4] 关闭JSON转Excel工具...
+2025-12-11 11:36:42,692 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-11 11:36:42,692 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-11 11:36:42,692 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-11 11:36:42,696 - INFO -   JSON转Excel工具已关闭
+2025-12-11 11:36:43,697 - INFO - 
+【迭代 4/3】
+2025-12-11 11:36:43,697 - INFO - 
+所有测试完成！如果程序仍在运行，说明修复成功。
+2025-12-11 11:36:43,697 - INFO - 请手动关闭主窗口以结束测试。
+2025-12-11 11:38:10,320 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-11 11:38:10,328 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-11 11:38:10,341 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-11 11:39:09,363 - INFO - 应用正常退出，退出代码: 0
+2025-12-12 09:58:09,409 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 09:58:09,424 - INFO - JSONToExcel UI 启动
+2025-12-12 09:58:09,425 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 09:58:09,463 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 09:58:35,389 - INFO - 用户选择保存路径: C:/Users/YANGZP/Downloads/三公.xlsx
+2025-12-12 09:58:35,396 - INFO - [ConversionWorker] 开始转换: C:/Users/YANGZP/Downloads/三公.json -> C:/Users/YANGZP/Downloads/三公.xlsx
+2025-12-12 09:58:35,396 - INFO - [ConversionWorker] 正在读取 JSON 文件...
+2025-12-12 09:58:35,442 - INFO - [ConversionWorker] JSON 文件读取成功，大小: 1933034 字节
+2025-12-12 09:58:35,445 - INFO - [ConversionWorker] 正在标准化数据...
+2025-12-12 09:58:35,446 - INFO - [ConversionWorker] 数据标准化完成，共 2782 条记录
+2025-12-12 09:58:35,446 - INFO - [ConversionWorker] 正在转换并写入 Excel...
+2025-12-12 09:58:36,441 - INFO - [ConversionWorker] Excel 文件写入成功
+2025-12-12 09:58:36,442 - INFO - [ConversionWorker] 转换报告: {"row_count": 2782, "columns": ["rownum", "xh", "agccode", "agcname", "xmmc", "expendtypename", "proname", "amthj", "amtybxj", "amtno8", "amtno9", "amtno10", "amtno11", "amtno12", "ybggysfmsr", "amtno13", "amtno14", "amtno15", "amtno16", "amtno17", "amtno18", "amtno19", "amtzfxj", "amtno21", "amtno22", "amtno23", "amtno24", "amtgzxj", "amtno26", "amtno27", "amtno28", "amtdwxj", "amtno30", "amtno31", "amtno32", "amtno33", "amtno34", "amtczbk_xj", "amtczbk_ybgg", "amtczbk_zfxjj", "amtczbk_gyzbjy", "amtfczbk_xj", "amtfczbk_czzhglzj", "amtfczbk_dwzj"], "missing_counts": {"rownum": 0, "xh": 0, "agccode": 0, "agcname": 0, "xmmc": 0, "expendtypename": 0, "proname": 0, "amthj": 0, "amtybxj": 0, "amtno8": 0, "amtno9": 0, "amtno10": 0, "amtno11": 0, "amtno12": 0, "ybggysfmsr": 0, "amtno13": 0, "amtno14": 0, "amtno15": 0, "amtno16": 0, "amtno17": 0, "amtno18": 0, "amtno19": 0, "amtzfxj": 0, "amtno21": 0, "amtno22": 0, "amtno23": 0, "amtno24": 0, "amtgzxj": 0, "amtno26": 0, "amtno27": 0, "amtno28": 0, "amtdwxj": 0, "amtno30": 0, "amtno31": 0, "amtno32": 0, "amtno33": 0, "amtno34": 0, "amtczbk_xj": 0, "amtczbk_ybgg": 0, "amtczbk_zfxjj": 0, "amtczbk_gyzbjy": 0, "amtfczbk_xj": 0, "amtfczbk_czzhglzj": 0, "amtfczbk_dwzj": 0}, "numeric_sums": {}}
+2025-12-12 09:58:36,442 - INFO - [ConversionWorker] 转换完成: C:/Users/YANGZP/Downloads/三公.xlsx
+2025-12-12 09:58:36,442 - INFO - [ConversionWorker] 线程即将退出
+2025-12-12 09:58:36,448 - INFO - 转换成功: C:/Users/YANGZP/Downloads/三公.xlsx
+2025-12-12 10:10:51,591 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:10:51,598 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:10:51,598 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:10:54,139 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:10:54,164 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:10:54,180 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:11:09,066 - INFO - 应用正常退出，退出代码: 0
+2025-12-12 10:12:17,923 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:17,931 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:17,932 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:17,953 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:18,673 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:18,674 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:18,674 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:19,180 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:19,180 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:19,180 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:19,182 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:19,182 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:19,191 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:19,876 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:19,876 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:19,876 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:20,417 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:20,417 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:20,417 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:20,419 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:20,419 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:20,430 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:21,146 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:21,146 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:21,146 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:21,837 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:21,837 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:21,837 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:21,839 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:21,839 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:21,848 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:22,639 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:22,640 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:22,640 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:23,193 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:23,193 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:23,193 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:23,195 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:23,195 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:23,205 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:23,931 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:23,931 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:23,931 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:24,533 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:24,533 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:24,533 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:24,535 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:24,535 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:24,544 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:28,632 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:28,632 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:28,632 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:29,251 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:29,251 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:29,251 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:29,253 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:29,253 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:29,263 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:29,837 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:29,838 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:29,838 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:30,444 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:12:30,447 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:12:30,459 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:12:31,730 - INFO - [WindowUtils] 尝试复用窗口: ywjlb_window
+2025-12-12 10:12:31,730 - INFO - [WindowUtils] 窗口 ywjlb_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:31,730 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:12:31,734 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:12:31,744 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:12:32,994 - INFO - [WindowUtils] 尝试复用窗口: ywjlb_window
+2025-12-12 10:12:32,994 - INFO - [WindowUtils] 窗口 ywjlb_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:32,994 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:12:32,997 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:12:33,007 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:12:34,207 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:34,211 - INFO - 应用程序已启动
+2025-12-12 10:12:34,211 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:34,222 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:34,920 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:34,920 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:34,920 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:35,347 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:35,347 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:35,347 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:35,348 - INFO - 应用程序已启动
+2025-12-12 10:12:35,348 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:35,357 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:35,854 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:35,854 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:35,854 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:36,344 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:36,344 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:36,345 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:36,346 - INFO - 应用程序已启动
+2025-12-12 10:12:36,346 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:36,356 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:36,853 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:36,853 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:36,853 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:37,280 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:37,280 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:37,280 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:37,282 - INFO - 应用程序已启动
+2025-12-12 10:12:37,282 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:37,290 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:37,979 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:37,979 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:37,979 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:38,446 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:38,446 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:38,446 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:38,448 - INFO - 应用程序已启动
+2025-12-12 10:12:38,448 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:38,457 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:39,119 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:39,119 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:39,119 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:39,555 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:39,555 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:39,555 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:39,557 - INFO - 应用程序已启动
+2025-12-12 10:12:39,557 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:39,567 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:40,160 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:40,160 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:40,160 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:40,594 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:40,594 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:40,595 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:40,596 - INFO - 应用程序已启动
+2025-12-12 10:12:40,596 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:40,606 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:41,216 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:41,217 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:41,217 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:41,642 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:41,642 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:41,642 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:41,644 - INFO - 应用程序已启动
+2025-12-12 10:12:41,644 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:41,653 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:42,281 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:42,282 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:42,282 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:42,782 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-12 10:12:42,782 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:42,782 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:12:42,784 - INFO - 应用程序已启动
+2025-12-12 10:12:42,784 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:12:42,795 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:12:43,354 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:12:43,354 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:43,354 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:12:43,988 - INFO - [WindowUtils] 尝试复用窗口: ywjlb_window
+2025-12-12 10:12:43,988 - INFO - [WindowUtils] 窗口 ywjlb_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:43,988 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:12:43,991 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:12:44,001 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:12:45,847 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-12 10:12:45,847 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-12 10:12:45,847 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:12:45,849 - INFO - JSONToExcel UI 启动
+2025-12-12 10:12:45,849 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:12:45,861 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:12:47,371 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:12:47,371 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:12:47,371 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:12:49,411 - INFO - 应用正常退出，退出代码: 0
+2025-12-12 10:14:35,397 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 10:14:35,400 - INFO - JSONToExcel UI 启动
+2025-12-12 10:14:35,401 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 10:14:35,417 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 10:14:36,903 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 10:14:36,904 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:14:36,904 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 10:14:37,577 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 10:14:37,581 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 10:14:37,593 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 10:14:39,011 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 10:14:39,013 - INFO - 应用程序已启动
+2025-12-12 10:14:39,013 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 10:14:39,023 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 10:14:39,755 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 10:14:39,756 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 10:14:39,756 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 10:14:40,529 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-12 10:14:40,542 - INFO - 三保支出进度工具启动
+2025-12-12 10:14:40,543 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-12 10:14:40,553 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-12 10:14:42,499 - INFO - 应用正常退出，退出代码: 0
+2025-12-12 13:23:35,050 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-12 13:23:35,058 - INFO - 三保支出进度工具启动
+2025-12-12 13:23:35,059 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-12 13:23:35,082 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-12 13:23:36,773 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-12 13:23:36,776 - INFO - 应用程序已启动
+2025-12-12 13:23:36,776 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-12 13:23:36,787 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-12 13:23:37,633 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-12 13:23:37,635 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 13:23:37,635 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 13:23:37,635 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-12 13:23:38,395 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-12 13:23:38,398 - INFO - JSONToExcel UI 启动
+2025-12-12 13:23:38,398 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-12 13:23:38,410 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-12 13:23:39,416 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-12 13:23:39,417 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-12 13:23:39,417 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-12 13:23:40,110 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-12 13:23:40,113 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-12 13:23:40,126 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-12 13:23:41,740 - INFO - 应用正常退出，退出代码: 0
+2025-12-15 15:22:04,388 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-15 15:22:04,414 - INFO - JSONToExcel UI 启动
+2025-12-15 15:22:04,415 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-15 15:22:04,437 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-15 15:23:03,188 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-15 15:23:03,189 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-15 15:23:03,189 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-15 15:23:04,111 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-15 15:23:04,115 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-15 15:23:04,129 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-15 15:23:06,037 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-15 15:23:06,037 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-15 15:23:06,037 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-15 15:23:06,040 - INFO - JSONToExcel UI 启动
+2025-12-15 15:23:06,040 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-15 15:23:06,053 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-15 15:23:07,303 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-15 15:23:07,303 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-15 15:23:07,303 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-15 15:23:07,997 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-15 15:23:07,998 - INFO - 应用程序已启动
+2025-12-15 15:23:07,998 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-15 15:23:08,009 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-15 15:23:09,485 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-15 15:23:09,485 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-15 15:23:09,485 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-15 15:23:10,113 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-15 15:23:10,123 - INFO - 三保支出进度工具启动
+2025-12-15 15:23:10,123 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-15 15:23:10,133 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-15 15:23:13,836 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:24:15,302 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:24:15,317 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:24:15,327 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:24:22,253 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:28:17,586 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:28:17,591 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:28:17,601 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:28:34,773 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:33:16,927 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:33:16,933 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:33:16,944 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:34:09,014 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:39:31,196 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:39:31,201 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:39:31,213 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:40:41,500 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:45:07,352 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:45:07,358 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:45:07,369 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:46:25,087 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:49:56,801 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 19:49:56,806 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 19:49:56,818 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 19:51:36,144 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 19:51:36,148 - INFO - JSONToExcel UI 启动
+2025-12-26 19:51:36,148 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 19:51:36,165 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 19:51:44,421 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 19:51:44,422 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 19:51:44,422 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 19:51:45,521 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 19:51:45,529 - INFO - 三保支出进度工具启动
+2025-12-26 19:51:45,529 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 19:51:45,539 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 19:51:54,311 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 19:59:40,785 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 19:59:40,792 - INFO - 三保支出进度工具启动
+2025-12-26 19:59:40,793 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 19:59:40,808 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 19:59:48,539 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:00:13,900 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:00:13,906 - INFO - 三保支出进度工具启动
+2025-12-26 20:00:13,906 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:00:13,918 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:00:24,319 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:00:28,186 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:00:28,192 - ERROR - 加载数据失败: 'ExpenditureAnalyzer' object has no attribute 'column_checkboxes'
+2025-12-26 20:00:44,497 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:00:59,961 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:00:59,967 - INFO - 三保支出进度工具启动
+2025-12-26 20:00:59,967 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:00:59,980 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:01:05,969 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:01:07,478 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:01:07,481 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:01:18,215 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:07:18,685 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:07:18,691 - INFO - 三保支出进度工具启动
+2025-12-26 20:07:18,692 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:07:18,704 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:07:38,566 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:07:40,479 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:07:40,486 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:07:55,395 - INFO - 已切换数据列为: 三保标识
+2025-12-26 20:07:57,443 - INFO - 已切换数据列为: 下达区县
+2025-12-26 20:07:58,785 - INFO - 已切换数据列为: 预算数
+2025-12-26 20:08:25,076 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:10:50,879 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:10:50,887 - INFO - 三保支出进度工具启动
+2025-12-26 20:10:50,887 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:10:50,901 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:11:19,579 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:11:21,289 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:11:21,293 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:11:32,544 - INFO - 已切换数据列为: 预算部门
+2025-12-26 20:11:35,246 - INFO - 已切换数据列为: 指标文号
+2025-12-26 20:11:45,222 - INFO - 已切换数据列为: 收入控制类型
+2025-12-26 20:11:47,473 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 20:11:50,565 - INFO - 预算单位全选: 共 2 个单位
+2025-12-26 20:11:52,788 - INFO - 开始数据分析...
+2025-12-26 20:11:52,791 - ERROR - 分析过程出错: 筛选后数据为空，请检查'三保标识'和'指标类型'列的值是否正确
+2025-12-26 20:12:15,580 - INFO - 已切换数据列为: 指标号
+2025-12-26 20:12:24,046 - INFO - 预算单位全选: 共 2184 个单位
+2025-12-26 20:12:27,196 - INFO - 开始数据分析...
+2025-12-26 20:12:27,200 - ERROR - 分析过程出错: 筛选后数据为空，请检查'三保标识'和'指标类型'列的值是否正确
+2025-12-26 20:13:05,940 - INFO - 已切换数据列为: 预算单位
+2025-12-26 20:13:07,071 - INFO - 预算单位全选: 共 95 个单位
+2025-12-26 20:13:07,994 - INFO - 开始数据分析...
+2025-12-26 20:13:08,008 - INFO - 数据分析完成，生成 266 行汇总结果
+2025-12-26 20:13:08,011 - INFO - 正在生成分析结果...
+2025-12-26 20:13:10,153 - INFO - 用户取消了文件保存操作
+2025-12-26 20:13:14,788 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:15:28,576 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:15:28,583 - INFO - 三保支出进度工具启动
+2025-12-26 20:15:28,584 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:15:28,597 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:15:41,494 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 20:15:41,494 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 20:15:41,494 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:15:41,497 - INFO - 三保支出进度工具启动
+2025-12-26 20:15:41,497 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:15:41,508 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:18:41,196 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:19:06,370 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:19:06,378 - INFO - 三保支出进度工具启动
+2025-12-26 20:19:06,378 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:19:06,393 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:19:18,081 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:19:20,207 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:19:20,209 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:19:25,139 - INFO - 已切换数据列为: 三保标识
+2025-12-26 20:19:33,877 - INFO - 已切换数据列为: 预算单位
+2025-12-26 20:22:38,371 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:22:42,780 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:22:42,787 - INFO - 三保支出进度工具启动
+2025-12-26 20:22:42,787 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:22:42,806 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:22:51,411 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:22:54,461 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:22:54,464 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:22:58,537 - INFO - 已切换数据列为: 三保标识
+2025-12-26 20:23:00,207 - INFO - 已切换数据列为: 预算数
+2025-12-26 20:23:05,082 - INFO - 已切换数据列为: 预算年度
+2025-12-26 20:23:07,348 - INFO - 已切换数据列为: 批复日期
+2025-12-26 20:23:09,885 - INFO - 已切换数据列为: 指标号
+2025-12-26 20:23:14,574 - INFO - 已切换数据列为: 预算单位
+2025-12-26 20:23:31,979 - INFO - 已切换数据列为: 预算数
+2025-12-26 20:23:42,286 - INFO - 已切换数据列为: 预算单位
+2025-12-26 20:23:47,800 - INFO - 已切换数据列为: 批示领导
+2025-12-26 20:24:03,884 - INFO - 已切换数据列为: 预算单位
+2025-12-26 20:24:30,936 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:29:13,226 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:29:13,233 - INFO - 三保支出进度工具启动
+2025-12-26 20:29:13,234 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:29:13,247 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:29:19,824 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:29:21,715 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:29:21,718 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:29:34,897 - INFO - 已切换数据列为: 支出功能分类
+2025-12-26 20:29:54,705 - INFO - 已切换数据列为: 项目类别
+2025-12-26 20:29:59,845 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:30:22,659 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:30:22,666 - INFO - 三保支出进度工具启动
+2025-12-26 20:30:22,666 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:30:22,679 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:30:40,518 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:31:59,138 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:31:59,145 - INFO - 三保支出进度工具启动
+2025-12-26 20:31:59,146 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:31:59,159 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:32:05,597 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:32:07,794 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:32:07,797 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:32:13,510 - INFO - 已切换数据列为: 项目名称
+2025-12-26 20:32:18,831 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 20:32:21,711 - INFO - 项目名称: 当前已选择 1 个单位
+2025-12-26 20:32:23,155 - INFO - 预算单位全选: 共 41 个单位
+2025-12-26 20:32:24,578 - INFO - 开始数据分析...
+2025-12-26 20:32:24,580 - ERROR - 分析过程出错: 筛选后数据为空，请检查'三保标识'和'指标类型'列的值是否正确
+2025-12-26 20:32:29,625 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:35:41,496 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:35:41,503 - INFO - 三保支出进度工具启动
+2025-12-26 20:35:41,504 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:35:41,517 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:37:00,259 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:37:04,655 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:37:04,662 - INFO - 三保支出进度工具启动
+2025-12-26 20:37:04,662 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:37:04,679 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:37:24,215 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 20:37:24,217 - INFO - JSONToExcel UI 启动
+2025-12-26 20:37:24,218 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 20:37:24,230 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 20:37:26,959 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 20:37:26,959 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:26,959 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:26,959 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 20:37:28,395 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 20:37:28,395 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 20:37:28,395 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:37:28,398 - INFO - 三保支出进度工具启动
+2025-12-26 20:37:28,398 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:37:28,410 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:37:30,095 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-26 20:37:30,095 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-26 20:37:30,095 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 20:37:30,097 - INFO - JSONToExcel UI 启动
+2025-12-26 20:37:30,097 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 20:37:30,108 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 20:37:32,679 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 20:37:32,680 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:32,680 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:32,680 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 20:37:33,477 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 20:37:33,477 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 20:37:33,477 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:37:33,480 - INFO - 三保支出进度工具启动
+2025-12-26 20:37:33,480 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:37:33,491 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:37:37,816 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 20:37:37,818 - INFO - 应用程序已启动
+2025-12-26 20:37:37,818 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 20:37:37,828 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 20:37:39,366 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 20:37:39,367 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:39,367 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 20:37:39,367 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 20:37:40,118 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 20:37:40,123 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 20:37:40,136 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 20:37:44,347 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:42:22,282 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:42:22,288 - INFO - 三保支出进度工具启动
+2025-12-26 20:42:22,289 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:42:22,301 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:42:28,559 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:42:30,612 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:42:30,615 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:42:32,030 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 20:42:33,351 - INFO - 预算单位全选: 共 95 个单位
+2025-12-26 20:42:35,537 - INFO - 预算单位取消全选: 共 95 个单位
+2025-12-26 20:42:37,690 - INFO - 预算单位全选: 共 95 个单位
+2025-12-26 20:42:39,292 - INFO - 开始数据分析...
+2025-12-26 20:42:39,304 - INFO - 数据分析完成，生成 266 行汇总结果
+2025-12-26 20:42:39,307 - INFO - 正在生成分析结果...
+2025-12-26 20:42:46,319 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_204239.xlsx
+2025-12-26 20:42:46,320 - INFO - 正在保存分析结果...
+2025-12-26 20:42:46,461 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_204239.xlsx
+2025-12-26 20:43:14,591 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 20:43:14,591 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 20:43:14,591 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:43:14,594 - INFO - 三保支出进度工具启动
+2025-12-26 20:43:14,594 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:43:14,605 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:43:17,584 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:43:18,924 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:43:18,927 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:43:19,729 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 20:43:20,741 - INFO - 开始数据分析...
+2025-12-26 20:43:20,753 - INFO - 数据分析完成，生成 10 行汇总结果
+2025-12-26 20:43:20,756 - INFO - 正在生成分析结果...
+2025-12-26 20:43:26,429 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_204320.xlsx
+2025-12-26 20:43:26,429 - INFO - 正在保存分析结果...
+2025-12-26 20:43:26,446 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_204320.xlsx
+2025-12-26 20:44:44,599 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 20:57:21,077 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 20:57:21,084 - INFO - 三保支出进度工具启动
+2025-12-26 20:57:21,084 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 20:57:21,097 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 20:57:30,796 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 20:57:32,848 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 20:57:32,853 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 20:57:34,227 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 20:57:36,574 - INFO - 已切换数据列为: 预算部门
+2025-12-26 20:57:38,109 - INFO - 预算部门: 当前已选择 1 个单位
+2025-12-26 20:57:39,492 - INFO - 开始数据分析...
+2025-12-26 20:57:39,495 - ERROR - 分析过程出错: 筛选后数据为空，请检查'三保标识'和'指标类型'列的值是否正确
+2025-12-26 20:58:38,622 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 21:44:14,615 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 21:44:14,621 - INFO - 三保支出进度工具启动
+2025-12-26 21:44:14,622 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 21:44:14,634 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 21:44:20,052 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx
+2025-12-26 21:44:21,541 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (3).xlsx，共 2184 行记录
+2025-12-26 21:44:21,544 - INFO - 已更新三保标识 (10 个) 和预算单位 (95 个) 复选框
+2025-12-26 21:44:22,823 - INFO - 三保标识全选: 共 10 个标识
+2025-12-26 21:44:31,152 - INFO - 已切换数据列为: 预算部门
+2025-12-26 21:44:32,234 - INFO - 预算单位全选: 共 1 个单位
+2025-12-26 21:44:33,332 - INFO - 开始数据分析...
+2025-12-26 21:44:33,344 - INFO - 数据分析完成，生成 10 行汇总结果
+2025-12-26 21:44:33,347 - INFO - 正在生成分析结果...
+2025-12-26 21:44:39,868 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214433.xlsx
+2025-12-26 21:44:39,869 - INFO - 正在保存分析结果...
+2025-12-26 21:44:39,887 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214433.xlsx
+2025-12-26 21:45:33,523 - INFO - 已切换数据列为: 项目名称
+2025-12-26 21:45:35,128 - INFO - 预算单位全选: 共 41 个单位
+2025-12-26 21:45:38,381 - INFO - 开始数据分析...
+2025-12-26 21:45:38,393 - INFO - 数据分析完成，生成 48 行汇总结果
+2025-12-26 21:45:38,396 - INFO - 正在生成分析结果...
+2025-12-26 21:45:43,827 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214538.xlsx
+2025-12-26 21:45:43,828 - INFO - 正在保存分析结果...
+2025-12-26 21:45:43,866 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214538.xlsx
+2025-12-26 21:48:08,861 - INFO - 已切换数据列为: 支出功能分类
+2025-12-26 21:48:10,274 - INFO - 预算单位全选: 共 5 个单位
+2025-12-26 21:48:11,501 - INFO - 开始数据分析...
+2025-12-26 21:48:11,512 - INFO - 数据分析完成，生成 11 行汇总结果
+2025-12-26 21:48:11,516 - INFO - 正在生成分析结果...
+2025-12-26 21:48:17,846 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214811.xlsx
+2025-12-26 21:48:17,847 - INFO - 正在保存分析结果...
+2025-12-26 21:48:17,862 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_214811.xlsx
+2025-12-26 21:56:11,223 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (6).xlsx
+2025-12-26 21:56:15,449 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (6).xlsx，共 14933 行记录
+2025-12-26 21:56:15,455 - INFO - 已更新三保标识 (36 个) 和预算单位 (186 个) 复选框
+2025-12-26 21:56:16,742 - INFO - 三保标识全选: 共 35 个标识
+2025-12-26 21:56:19,155 - INFO - 已切换数据列为: 预算部门
+2025-12-26 21:56:20,962 - INFO - 预算单位全选: 共 77 个单位
+2025-12-26 21:56:27,765 - INFO - 开始数据分析...
+2025-12-26 21:56:27,780 - INFO - 数据分析完成，生成 187 行汇总结果
+2025-12-26 21:56:27,784 - INFO - 正在生成分析结果...
+2025-12-26 21:56:32,196 - INFO - 已选择输出文件路径: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_215627.xlsx
+2025-12-26 21:56:32,197 - INFO - 正在保存分析结果...
+2025-12-26 21:56:32,312 - INFO - 分析结果已保存: D:/学习/PythonProject/test/sanbao_test/三保/三保支出进度_20251226_215627.xlsx
+2025-12-26 21:58:34,779 - INFO - 已切换数据列为: 支出功能分类
+2025-12-26 21:58:41,253 - INFO - 已切换数据列为: 项目类别
+2025-12-26 21:58:44,192 - INFO - 已切换数据列为: 指标文号
+2025-12-26 21:58:44,198 - ERROR - 更新指标文号失败: '<' not supported between instances of 'str' and 'float'
+2025-12-26 21:58:53,936 - INFO - 已切换数据列为: 指标管理处
+2025-12-26 21:58:56,054 - INFO - 已切换数据列为: 指标文号
+2025-12-26 21:58:56,058 - ERROR - 更新指标文号失败: '<' not supported between instances of 'str' and 'float'
+2025-12-26 21:59:43,341 - INFO - 已切换数据列为: 资金性质
+2025-12-26 21:59:45,940 - INFO - 已切换数据列为: 收入控制类型
+2025-12-26 21:59:49,658 - INFO - 已切换数据列为: 项目名称
+2025-12-26 21:59:53,988 - INFO - 已切换数据列为: 部门支出经济分类
+2025-12-26 21:59:58,879 - INFO - 已切换数据列为: 预算单位
+2025-12-26 22:00:01,853 - INFO - 已切换数据列为: 指标文号
+2025-12-26 22:00:01,857 - ERROR - 更新指标文号失败: '<' not supported between instances of 'str' and 'float'
+2025-12-26 22:01:15,366 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:01:15,366 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:01:15,366 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:01:15,369 - INFO - 三保支出进度工具启动
+2025-12-26 22:01:15,370 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:01:15,382 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:01:19,177 - INFO - 已选择文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (6).xlsx
+2025-12-26 22:01:23,282 - INFO - 成功加载数据文件: D:/学习/PythonProject/test/sanbao_test/三保/导出数据 (6).xlsx，共 14933 行记录
+2025-12-26 22:01:23,289 - INFO - 已更新三保标识 (36 个) 和预算单位 (186 个) 复选框
+2025-12-26 22:01:26,650 - INFO - 已切换数据列为: 指标文号
+2025-12-26 22:01:26,655 - ERROR - 更新指标文号失败: '<' not supported between instances of 'str' and 'float'
+2025-12-26 22:03:23,126 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:03:23,130 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:03:23,144 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:03:27,430 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:03:27,433 - INFO - JSONToExcel UI 启动
+2025-12-26 22:03:27,434 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:03:27,448 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:03:38,702 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:03:38,703 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:38,704 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:38,705 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:38,705 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:03:39,723 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:03:39,723 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:03:39,723 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:03:39,726 - INFO - 三保支出进度工具启动
+2025-12-26 22:03:39,726 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:03:39,738 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:03:41,560 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:03:41,562 - INFO - 应用程序已启动
+2025-12-26 22:03:41,562 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:03:41,574 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:03:42,706 - INFO - 准备开始分析...
+2025-12-26 22:03:42,707 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:03:42,707 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:03:42,708 - INFO - 开始读取数据...
+2025-12-26 22:03:42,708 - ERROR - [AnalysisWorker] 读取数据失败: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:03:42,712 - ERROR - [AnalysisWorker] 线程执行异常: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:03:42,719 - ERROR - 分析失败: WindowsPath('.') has an empty name
+2025-12-26 22:03:44,804 - INFO - 准备开始分析...
+2025-12-26 22:03:44,806 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:03:44,806 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:03:44,806 - INFO - 开始读取数据...
+2025-12-26 22:03:44,806 - ERROR - [AnalysisWorker] 读取数据失败: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:03:44,807 - ERROR - [AnalysisWorker] 线程执行异常: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:03:44,813 - ERROR - 分析失败: WindowsPath('.') has an empty name
+2025-12-26 22:03:51,801 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:03:51,802 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:51,802 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:51,802 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:03:52,849 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:03:52,849 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:03:52,849 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:03:52,852 - INFO - 三保支出进度工具启动
+2025-12-26 22:03:52,852 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:03:52,863 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:03:55,344 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:03:55,344 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:03:55,344 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:03:55,346 - INFO - 应用程序已启动
+2025-12-26 22:03:55,346 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:03:55,361 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:03:58,809 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:03:58,809 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:58,809 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:03:58,809 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:03:59,574 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-26 22:03:59,574 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:03:59,574 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:03:59,576 - INFO - JSONToExcel UI 启动
+2025-12-26 22:03:59,576 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:03:59,590 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:04:01,760 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:04:01,761 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:04:01,761 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:04:02,574 - INFO - [WindowUtils] 尝试复用窗口: ywjlb_window
+2025-12-26 22:04:02,574 - INFO - [WindowUtils] 窗口 ywjlb_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:04:02,574 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:04:02,578 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:04:02,590 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:04:06,525 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:04:06,525 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:04:06,525 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:04:06,527 - INFO - 应用程序已启动
+2025-12-26 22:04:06,527 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:04:06,540 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:04:07,362 - INFO - 准备开始分析...
+2025-12-26 22:04:07,364 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:04:07,364 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:04:07,364 - INFO - 开始读取数据...
+2025-12-26 22:04:07,364 - ERROR - [AnalysisWorker] 读取数据失败: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:04:07,367 - ERROR - [AnalysisWorker] 线程执行异常: WindowsPath('.') has an empty name
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 455, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 468, in _read_file
+    full_path = file_path.with_suffix(f'.{ext}')
+  File "C:\Users\YANGZP\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 441, in with_suffix
+    raise ValueError(f"{self!r} has an empty name")
+ValueError: WindowsPath('.') has an empty name
+2025-12-26 22:04:07,369 - ERROR - 分析失败: WindowsPath('.') has an empty name
+2025-12-26 22:06:35,014 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:06:35,014 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:06:35,014 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:06:36,866 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:06:45,628 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:06:45,631 - INFO - 应用程序已启动
+2025-12-26 22:06:45,631 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:06:45,642 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:06:46,463 - INFO - 准备开始分析...
+2025-12-26 22:06:46,465 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:06:46,465 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:06:46,465 - INFO - 开始读取数据...
+2025-12-26 22:06:46,465 - ERROR - [AnalysisWorker] 读取数据失败: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:46,469 - ERROR - [AnalysisWorker] 线程执行异常: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:46,471 - ERROR - 分析失败: 无效的文件路径: .
+2025-12-26 22:06:54,793 - INFO - 准备开始分析...
+2025-12-26 22:06:54,794 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:06:54,795 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:06:54,795 - INFO - 开始读取数据...
+2025-12-26 22:06:54,795 - ERROR - [AnalysisWorker] 读取数据失败: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:54,795 - ERROR - [AnalysisWorker] 线程执行异常: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:54,800 - ERROR - 分析失败: 无效的文件路径: .
+2025-12-26 22:06:56,899 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:06:56,899 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:06:56,900 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:06:57,924 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:06:57,924 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:06:57,924 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:06:57,926 - INFO - 应用程序已启动
+2025-12-26 22:06:57,926 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:06:57,936 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:06:58,664 - INFO - 准备开始分析...
+2025-12-26 22:06:58,666 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:06:58,666 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:06:58,666 - INFO - 开始读取数据...
+2025-12-26 22:06:58,666 - ERROR - [AnalysisWorker] 读取数据失败: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:58,669 - ERROR - [AnalysisWorker] 线程执行异常: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:06:58,673 - ERROR - 分析失败: 无效的文件路径: .
+2025-12-26 22:07:00,734 - INFO - 准备开始分析...
+2025-12-26 22:07:00,735 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:07:00,735 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:07:00,735 - INFO - 开始读取数据...
+2025-12-26 22:07:00,735 - ERROR - [AnalysisWorker] 读取数据失败: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:07:00,736 - ERROR - [AnalysisWorker] 线程执行异常: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:07:00,740 - ERROR - 分析失败: 无效的文件路径: .
+2025-12-26 22:07:06,335 - INFO - 准备开始分析...
+2025-12-26 22:07:06,336 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:07:06,336 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:07:06,336 - INFO - 开始读取数据...
+2025-12-26 22:07:06,337 - ERROR - [AnalysisWorker] 读取数据失败: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:07:06,337 - ERROR - [AnalysisWorker] 线程执行异常: 无效的文件路径: .
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 377, in run
+    self.analyzer.read_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 456, in read_data
+    yszx_df = self._read_file(self.yszx_path, ['xlsx', 'csv'])
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 470, in _read_file
+    raise FileNotFoundError(f"无效的文件路径: {file_path}")
+FileNotFoundError: 无效的文件路径: .
+2025-12-26 22:07:06,345 - ERROR - 分析失败: 无效的文件路径: .
+2025-12-26 22:09:01,572 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:09:05,736 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:09:05,739 - INFO - 应用程序已启动
+2025-12-26 22:09:05,740 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:09:05,752 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:09:06,628 - ERROR - 请先选择预算执行数据文件
+2025-12-26 22:09:08,585 - ERROR - 请先选择预算执行数据文件
+2025-12-26 22:09:14,925 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:09:14,926 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:09:14,926 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:09:14,937 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:13:09,359 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:13:09,362 - INFO - 应用程序已启动
+2025-12-26 22:13:09,363 - ERROR - 未处理的异常:
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\main.py", line 161, in open_kjhs_module
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\common\window_utils.py", line 108, in open_or_activate
+    inst = factory_callable()
+  File "d:\学习\PythonProject\test\main.py", line 161, in <lambda>
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 674, in __init__
+    self.update_analyze_button_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 938, in update_analyze_button_state
+    self.analyze_btn.setEnabled(yszx_valid and kjhs_valid)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: setEnabled(self, a0: bool): argument 1 has unexpected type 'str'
+2025-12-26 22:13:13,217 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:13:13,218 - INFO - 应用程序已启动
+2025-12-26 22:13:13,219 - ERROR - 未处理的异常:
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\main.py", line 161, in open_kjhs_module
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\common\window_utils.py", line 108, in open_or_activate
+    inst = factory_callable()
+  File "d:\学习\PythonProject\test\main.py", line 161, in <lambda>
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 674, in __init__
+    self.update_analyze_button_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 938, in update_analyze_button_state
+    self.analyze_btn.setEnabled(yszx_valid and kjhs_valid)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: setEnabled(self, a0: bool): argument 1 has unexpected type 'str'
+2025-12-26 22:13:38,615 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:13:38,618 - INFO - 应用程序已启动
+2025-12-26 22:13:38,618 - ERROR - 未处理的异常:
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\main.py", line 161, in open_kjhs_module
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\common\window_utils.py", line 108, in open_or_activate
+    inst = factory_callable()
+  File "d:\学习\PythonProject\test\main.py", line 161, in <lambda>
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 674, in __init__
+    self.update_analyze_button_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 938, in update_analyze_button_state
+    self.analyze_btn.setEnabled(yszx_valid and kjhs_valid)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: setEnabled(self, a0: bool): argument 1 has unexpected type 'str'
+2025-12-26 22:14:29,305 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:14:31,872 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:14:31,875 - INFO - 应用程序已启动
+2025-12-26 22:14:31,875 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:14:31,892 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:14:35,576 - INFO - 配置已更新 - 高偏离度阈值: 10.0%, 小数位数: 6
+2025-12-26 22:14:46,558 - INFO - 准备开始分析...
+2025-12-26 22:14:46,559 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:14:46,560 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:14:46,560 - INFO - 开始读取数据...
+2025-12-26 22:14:49,112 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:14:49,120 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:14:49,120 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:14:49,120 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:14:49,120 - INFO - 开始处理预算执行数据...
+2025-12-26 22:14:49,151 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:14:49,151 - INFO - 开始处理会计核算数据...
+2025-12-26 22:14:49,154 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:14:49,154 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:14:49,157 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:14:49,158 - INFO - 差额计算完成
+2025-12-26 22:14:49,158 - INFO - 正在计算偏离度...
+2025-12-26 22:14:49,160 - INFO - 偏离度计算完成
+2025-12-26 22:14:49,161 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:14:49,161 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:14:49,161 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:14:49,161 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_221431.xlsx
+2025-12-26 22:14:49,161 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:14:49,161 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_221431.xlsx
+2025-12-26 22:14:49,195 - INFO - Excel 文件写入成功
+2025-12-26 22:14:49,195 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:14:49,244 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_221431.xlsx
+2025-12-26 22:14:49,244 - INFO - Excel 文件格式化成功
+2025-12-26 22:14:49,244 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_221431.xlsx
+2025-12-26 22:14:49,245 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_221431.xlsx
+2025-12-26 22:14:49,245 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:14:49,245 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:15:05,559 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:15:05,559 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:15:05,559 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:15:07,039 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:15:07,039 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:15:07,039 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:15:07,041 - INFO - 应用程序已启动
+2025-12-26 22:15:07,041 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:15:07,051 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:18:19,858 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:18:19,858 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:18:19,858 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:18:21,687 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:20:06,113 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:20:06,130 - INFO - 应用程序已启动
+2025-12-26 22:20:06,131 - ERROR - 未处理的异常:
+Traceback (most recent call last):
+  File "d:\学习\PythonProject\test\main.py", line 161, in open_kjhs_module
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\common\window_utils.py", line 108, in open_or_activate
+    inst = factory_callable()
+  File "d:\学习\PythonProject\test\main.py", line 161, in <lambda>
+    open_or_activate(self, 'kjhs_window', lambda: MainWindow(logger=getattr(self, 'logger', None)))
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 674, in __init__
+    self.update_analyze_button_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\学习\PythonProject\test\kjhs_test\pld_pyqt6.py", line 949, in update_analyze_button_state
+    self.analyze_btn.setEnabled(yszx_valid and kjhs_valid)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: setEnabled(self, a0: bool): argument 1 has unexpected type 'str'
+2025-12-26 22:20:08,235 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:21:09,955 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:21:09,974 - INFO - 应用程序已启动
+2025-12-26 22:21:09,974 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:21:09,987 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:21:11,561 - INFO - 配置已更新 - 高偏离度阈值: 10.0%, 小数位数: 6
+2025-12-26 22:21:33,728 - INFO - 准备开始分析...
+2025-12-26 22:21:33,730 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:21:33,730 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:21:33,730 - INFO - 开始读取数据...
+2025-12-26 22:21:36,301 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:21:36,307 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:21:36,307 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:21:36,307 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:21:36,308 - INFO - 开始处理预算执行数据...
+2025-12-26 22:21:36,331 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:21:36,332 - INFO - 开始处理会计核算数据...
+2025-12-26 22:21:36,335 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:21:36,335 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:21:36,336 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:21:36,337 - INFO - 差额计算完成
+2025-12-26 22:21:36,337 - INFO - 正在计算偏离度...
+2025-12-26 22:21:36,338 - INFO - 偏离度计算完成
+2025-12-26 22:21:36,340 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:21:36,340 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:21:36,340 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:21:36,340 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:36,340 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:21:36,340 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:36,377 - INFO - Excel 文件写入成功
+2025-12-26 22:21:36,377 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:21:36,428 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:36,428 - INFO - Excel 文件格式化成功
+2025-12-26 22:21:36,428 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:36,429 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:36,429 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:21:36,432 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:21:43,170 - INFO - 准备开始分析...
+2025-12-26 22:21:43,171 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:21:43,171 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:21:43,172 - INFO - 开始读取数据...
+2025-12-26 22:21:45,681 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:21:45,686 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:21:45,686 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:21:45,687 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:21:45,687 - INFO - 开始处理预算执行数据...
+2025-12-26 22:21:45,709 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:21:45,709 - INFO - 开始处理会计核算数据...
+2025-12-26 22:21:45,713 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:21:45,713 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:21:45,714 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:21:45,714 - INFO - 差额计算完成
+2025-12-26 22:21:45,714 - INFO - 正在计算偏离度...
+2025-12-26 22:21:45,715 - INFO - 偏离度计算完成
+2025-12-26 22:21:45,717 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:21:45,717 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:21:45,717 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:21:45,718 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:45,718 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:21:45,718 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:45,749 - INFO - Excel 文件写入成功
+2025-12-26 22:21:45,749 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:21:45,798 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:45,798 - INFO - Excel 文件格式化成功
+2025-12-26 22:21:45,798 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:45,799 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_222109.xlsx
+2025-12-26 22:21:45,799 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:21:45,799 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:21:47,971 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:21:47,972 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:21:47,972 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:21:49,521 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:21:55,583 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:21:55,600 - INFO - 应用程序已启动
+2025-12-26 22:21:55,601 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:21:55,617 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:22:07,689 - INFO - 准备开始分析...
+2025-12-26 22:22:07,690 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:22:07,691 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:22:07,691 - INFO - 开始读取数据...
+2025-12-26 22:22:10,203 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:22:10,209 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:22:10,209 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:22:10,210 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:22:10,212 - INFO - 开始处理预算执行数据...
+2025-12-26 22:22:10,237 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:22:10,237 - INFO - 开始处理会计核算数据...
+2025-12-26 22:22:10,240 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:22:10,240 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:22:10,241 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:22:10,242 - INFO - 差额计算完成
+2025-12-26 22:22:10,242 - INFO - 正在计算偏离度...
+2025-12-26 22:22:10,243 - INFO - 偏离度计算完成
+2025-12-26 22:22:10,244 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:22:10,244 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:22:10,244 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:22:10,245 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_222155.xlsx
+2025-12-26 22:22:10,245 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:22:10,245 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_222155.xlsx
+2025-12-26 22:22:10,279 - INFO - Excel 文件写入成功
+2025-12-26 22:22:10,279 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:22:10,328 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_222155.xlsx
+2025-12-26 22:22:10,328 - INFO - Excel 文件格式化成功
+2025-12-26 22:22:10,328 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_222155.xlsx
+2025-12-26 22:22:10,329 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_222155.xlsx
+2025-12-26 22:22:10,329 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:22:10,329 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:22:12,683 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:22:12,683 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:22:12,683 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:22:13,595 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:24:54,320 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:24:54,338 - INFO - 应用程序已启动
+2025-12-26 22:24:54,338 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:24:54,351 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:25:07,758 - INFO - 准备开始分析...
+2025-12-26 22:25:07,760 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:25:07,760 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:25:07,760 - INFO - 开始读取数据...
+2025-12-26 22:25:10,320 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:25:10,326 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:25:10,326 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:25:10,327 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:25:10,329 - INFO - 开始处理预算执行数据...
+2025-12-26 22:25:10,354 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:25:10,355 - INFO - 开始处理会计核算数据...
+2025-12-26 22:25:10,358 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:25:10,358 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:25:10,359 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:25:10,360 - INFO - 差额计算完成
+2025-12-26 22:25:10,360 - INFO - 正在计算偏离度...
+2025-12-26 22:25:10,361 - INFO - 偏离度计算完成
+2025-12-26 22:25:10,362 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:25:10,363 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:25:10,363 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:25:10,363 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:10,363 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:25:10,363 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:10,396 - INFO - Excel 文件写入成功
+2025-12-26 22:25:10,396 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:25:10,445 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:10,445 - INFO - Excel 文件格式化成功
+2025-12-26 22:25:10,446 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:10,446 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:10,447 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:25:10,447 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:25:14,573 - INFO - 准备开始分析...
+2025-12-26 22:25:14,575 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:25:14,575 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:25:14,575 - INFO - 开始读取数据...
+2025-12-26 22:25:17,094 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:25:17,100 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:25:17,100 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:25:17,100 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:25:17,101 - INFO - 开始处理预算执行数据...
+2025-12-26 22:25:17,123 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:25:17,123 - INFO - 开始处理会计核算数据...
+2025-12-26 22:25:17,127 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:25:17,127 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:25:17,128 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:25:17,129 - INFO - 差额计算完成
+2025-12-26 22:25:17,129 - INFO - 正在计算偏离度...
+2025-12-26 22:25:17,130 - INFO - 偏离度计算完成
+2025-12-26 22:25:17,131 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:25:17,131 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:25:17,131 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:25:17,131 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:17,131 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:25:17,132 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:17,163 - INFO - Excel 文件写入成功
+2025-12-26 22:25:17,163 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:25:17,212 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:17,212 - INFO - Excel 文件格式化成功
+2025-12-26 22:25:17,212 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:17,212 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_222454.xlsx
+2025-12-26 22:25:17,212 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:25:17,212 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:25:20,436 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:25:20,437 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:25:20,437 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:25:21,420 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:25:21,425 - INFO - 三保支出进度工具启动
+2025-12-26 22:25:21,426 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:25:21,440 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:25:23,460 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:25:23,464 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:25:23,480 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:25:30,506 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:25:30,506 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:25:30,506 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:25:30,523 - INFO - 应用程序已启动
+2025-12-26 22:25:30,523 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:25:30,536 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:25:32,564 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:25:32,564 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:25:32,564 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:25:32,564 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:25:33,606 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:31:41,055 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:31:41,073 - INFO - 应用程序已启动
+2025-12-26 22:31:41,073 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:31:41,087 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:31:48,952 - INFO - 配置已更新 - 高偏离度阈值: 10.0%, 小数位数: 6
+2025-12-26 22:32:03,811 - INFO - 准备开始分析...
+2025-12-26 22:32:03,813 - INFO - [AnalysisWorker] 线程开始运行
+2025-12-26 22:32:03,813 - INFO - [AnalysisWorker] 正在读取数据...
+2025-12-26 22:32:03,813 - INFO - 开始读取数据...
+2025-12-26 22:32:06,346 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\导出数据 (36).xlsx
+2025-12-26 22:32:06,352 - INFO - 成功读取数据: D:\学习\PythonProject\test\kjhs_test\会计核算偏离度\会计核算 (43).xls
+2025-12-26 22:32:06,352 - INFO - [AnalysisWorker] 数据读取完成
+2025-12-26 22:32:06,352 - INFO - [AnalysisWorker] 正在处理数据...
+2025-12-26 22:32:06,353 - INFO - 开始处理预算执行数据...
+2025-12-26 22:32:06,379 - INFO - 预算执行数据处理完成: 11882 -> 134 条记录
+2025-12-26 22:32:06,379 - INFO - 开始处理会计核算数据...
+2025-12-26 22:32:06,382 - INFO - 会计核算数据处理完成: 136 -> 134 条记录
+2025-12-26 22:32:06,383 - INFO - 开始合并数据并计算偏离度...
+2025-12-26 22:32:06,384 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:32:06,384 - INFO - 差额计算完成
+2025-12-26 22:32:06,384 - INFO - 正在计算偏离度...
+2025-12-26 22:32:06,386 - INFO - 偏离度计算完成
+2025-12-26 22:32:06,387 - INFO - 数据合并完成，共 134 条记录
+2025-12-26 22:32:06,388 - INFO - [AnalysisWorker] 数据处理完成
+2025-12-26 22:32:06,388 - INFO - [AnalysisWorker] 正在保存结果...
+2025-12-26 22:32:06,388 - INFO - 开始保存结果到: 会计核算财政资金偏离度_20251226_223141.xlsx
+2025-12-26 22:32:06,388 - INFO - 输出目录已创建或已存在: .
+2025-12-26 22:32:06,388 - INFO - 正在将数据写入 Excel 文件: 会计核算财政资金偏离度_20251226_223141.xlsx
+2025-12-26 22:32:06,422 - INFO - Excel 文件写入成功
+2025-12-26 22:32:06,423 - INFO - 正在格式化 Excel 文件...
+2025-12-26 22:32:06,472 - INFO - Excel格式化完成: 会计核算财政资金偏离度_20251226_223141.xlsx
+2025-12-26 22:32:06,472 - INFO - Excel 文件格式化成功
+2025-12-26 22:32:06,472 - INFO - 分析结果已保存到: 会计核算财政资金偏离度_20251226_223141.xlsx
+2025-12-26 22:32:06,472 - INFO - [AnalysisWorker] 结果已保存: 会计核算财政资金偏离度_20251226_223141.xlsx
+2025-12-26 22:32:06,472 - INFO - [AnalysisWorker] 分析完成，发送 finished 信号
+2025-12-26 22:32:06,476 - INFO - [AnalysisWorker] 线程即将退出
+2025-12-26 22:33:32,667 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:33:32,667 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:33:32,668 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:34:04,829 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:34:13,307 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:34:13,326 - INFO - 应用程序已启动
+2025-12-26 22:34:13,327 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:34:13,342 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:34:14,116 - INFO - 配置已更新 - 高偏离度阈值: 10.0%, 小数位数: 6
+2025-12-26 22:34:24,642 - INFO - 已选择预算执行数据文件: D:/学习/PythonProject/test/kjhs_test/会计核算偏离度/导出数据 (36).xlsx
+2025-12-26 22:34:29,171 - INFO - 已选择会计核算数据文件: D:/学习/PythonProject/test/kjhs_test/会计核算偏离度/会计核算 (43).xls
+2025-12-26 22:34:42,287 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:34:42,287 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:34:42,287 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:34:43,285 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:34:58,533 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:34:58,551 - INFO - 应用程序已启动
+2025-12-26 22:34:58,552 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:34:58,564 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:35:11,469 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:35:11,470 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:11,470 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:35:12,920 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:35:12,926 - INFO - 三保支出进度工具启动
+2025-12-26 22:35:12,926 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:35:12,941 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:35:27,975 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:35:27,975 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:35:27,975 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:35:27,978 - INFO - 三保支出进度工具启动
+2025-12-26 22:35:27,979 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:35:27,990 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:35:32,566 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:35:32,568 - INFO - JSONToExcel UI 启动
+2025-12-26 22:35:32,568 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:35:32,581 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:35:33,896 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:35:33,897 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:33,897 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:33,897 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:33,897 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:35:35,485 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-26 22:35:35,485 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:35:35,485 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:35:35,487 - INFO - JSONToExcel UI 启动
+2025-12-26 22:35:35,488 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:35:35,501 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:35:42,139 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:35:42,139 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:42,139 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:35:42,934 - INFO - [WindowUtils] 尝试复用窗口: kjhs_window
+2025-12-26 22:35:42,934 - INFO - [WindowUtils] 窗口 kjhs_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:35:42,934 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:35:42,950 - INFO - 应用程序已启动
+2025-12-26 22:35:42,950 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:35:42,962 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:35:43,913 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:35:43,913 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:43,913 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:35:44,505 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:35:44,505 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:35:44,505 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:35:44,508 - INFO - 三保支出进度工具启动
+2025-12-26 22:35:44,508 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:35:44,520 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:35:46,031 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-26 22:35:46,032 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:35:46,032 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:35:46,034 - INFO - JSONToExcel UI 启动
+2025-12-26 22:35:46,034 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:35:46,047 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:35:47,196 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:35:47,196 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:47,197 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:35:47,197 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:35:48,895 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:36:09,187 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:36:09,193 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:36:09,207 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:36:21,034 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:36:21,036 - INFO - JSONToExcel UI 启动
+2025-12-26 22:36:21,037 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:36:21,050 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:36:22,592 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:36:22,592 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:36:22,592 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:36:23,575 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:38:39,782 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:38:39,789 - INFO - 三保支出进度工具启动
+2025-12-26 22:38:39,790 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:38:39,804 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:40:08,758 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:40:15,027 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:40:15,032 - INFO - JSONToExcel UI 启动
+2025-12-26 22:40:15,033 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:40:15,048 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:40:18,306 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:40:18,307 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:40:18,307 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:40:19,300 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:41:39,791 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:41:39,798 - INFO - 三保支出进度工具启动
+2025-12-26 22:41:39,799 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:41:39,815 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:41:42,632 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:41:42,649 - INFO - 应用程序已启动
+2025-12-26 22:41:42,649 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:41:42,665 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:41:43,579 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:41:43,580 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:41:43,580 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:41:43,580 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:41:44,287 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:41:44,289 - INFO - JSONToExcel UI 启动
+2025-12-26 22:41:44,289 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:41:44,302 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:41:45,326 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:41:45,327 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:41:45,327 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:41:46,100 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:41:46,105 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:41:46,121 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:41:47,950 - INFO - [WindowUtils] 尝试复用窗口: sanbao_window
+2025-12-26 22:41:47,950 - INFO - [WindowUtils] 窗口 sanbao_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:41:47,951 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:41:47,954 - INFO - 三保支出进度工具启动
+2025-12-26 22:41:47,954 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:41:47,969 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:41:50,706 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:44:21,482 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:44:21,488 - INFO - JSONToExcel UI 启动
+2025-12-26 22:44:21,488 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:44:21,504 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:44:22,528 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:44:22,529 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:44:22,529 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:44:23,177 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:48:55,004 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:48:55,009 - INFO - JSONToExcel UI 启动
+2025-12-26 22:48:55,009 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:48:55,021 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:49:06,385 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:49:06,385 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:49:06,385 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:49:07,486 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:49:07,491 - INFO - 三保支出进度工具启动
+2025-12-26 22:49:07,491 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:49:07,500 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:49:10,142 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:49:10,156 - INFO - 应用程序已启动
+2025-12-26 22:49:10,156 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:49:10,165 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:49:10,947 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:49:10,948 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:49:10,948 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:49:10,948 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:49:11,889 - INFO - [WindowUtils] 尝试复用窗口: json_window
+2025-12-26 22:49:11,889 - INFO - [WindowUtils] 窗口 json_window 状态 - 可见: False, 最小化: False
+2025-12-26 22:49:11,889 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:49:11,892 - INFO - JSONToExcel UI 启动
+2025-12-26 22:49:11,892 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:49:11,904 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:49:12,699 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:49:12,699 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:49:12,699 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:49:13,459 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:49:13,463 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:49:13,473 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:49:20,258 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:49:35,750 - INFO - 应用正常退出，退出代码: 0
+2025-12-26 22:54:28,386 - INFO - [WindowUtils] 创建新窗口实例: kjhs_window
+2025-12-26 22:54:28,404 - INFO - 应用程序已启动
+2025-12-26 22:54:28,405 - INFO - [WindowUtils] 窗口实例已保存到 kjhs_window
+2025-12-26 22:54:28,414 - INFO - [WindowUtils] 窗口已显示: kjhs_window
+2025-12-26 22:54:30,469 - INFO - 会计核算偏离度工具：开始清理资源...
+2025-12-26 22:54:30,470 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:54:30,470 - INFO - 会计核算偏离度工具：资源清理完成，窗口关闭
+2025-12-26 22:54:31,368 - INFO - [WindowUtils] 创建新窗口实例: json_window
+2025-12-26 22:54:31,372 - INFO - JSONToExcel UI 启动
+2025-12-26 22:54:31,372 - INFO - [WindowUtils] 窗口实例已保存到 json_window
+2025-12-26 22:54:31,384 - INFO - [WindowUtils] 窗口已显示: json_window
+2025-12-26 22:54:32,438 - INFO - JSON转Excel工具：开始清理资源...
+2025-12-26 22:54:32,439 - INFO - 已移除 signal handler: <QtSignalHandler (INFO)>
+2025-12-26 22:54:32,439 - INFO - JSON转Excel工具：资源清理完成，窗口关闭
+2025-12-26 22:54:33,129 - INFO - [WindowUtils] 创建新窗口实例: ywjlb_window
+2025-12-26 22:54:33,133 - INFO - [WindowUtils] 窗口实例已保存到 ywjlb_window
+2025-12-26 22:54:33,147 - INFO - [WindowUtils] 窗口已显示: ywjlb_window
+2025-12-26 22:54:35,322 - INFO - [WindowUtils] 创建新窗口实例: sanbao_window
+2025-12-26 22:54:35,327 - INFO - 三保支出进度工具启动
+2025-12-26 22:54:35,328 - INFO - [WindowUtils] 窗口实例已保存到 sanbao_window
+2025-12-26 22:54:35,338 - INFO - [WindowUtils] 窗口已显示: sanbao_window
+2025-12-26 22:54:38,473 - INFO - 应用正常退出，退出代码: 0

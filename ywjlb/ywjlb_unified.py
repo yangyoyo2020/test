@@ -383,13 +383,14 @@ def save_word_document(doc, idx, sheet_name, date_value, output_dir="运维记�
         raise Exception(error_msg)
 
 
-def process_excel_file(excel_file: str, package_type: PackageType, output_dir: str = "运维记录文档"):
+def process_excel_file(excel_file: str, package_type: PackageType, output_dir: str = "运维记录文档", progress_callback=None):
     """处理Excel文件并生成Word文档
     
     Args:
         excel_file: Excel文件路径
         package_type: 包类型（PackageType枚举值）
         output_dir: 输出文件夹路径（默认为"运维记录文档"）
+        progress_callback: 进度回调函数，接受当前进度和总进度参数
     """
     try:
         logging.info(f"开始转换Excel数据到Word文档... (包类型: {package_type.value})")
@@ -404,6 +405,13 @@ def process_excel_file(excel_file: str, package_type: PackageType, output_dir: s
             logging.info(f"成功读取Excel文件，共{len(all_sheets)}个工作表")
         except Exception as e:
             raise Exception(f"读取Excel文件失败: {str(e)}")
+        
+        # 计算总进度
+        total_rows = sum(len(df) for df in all_sheets.values() if not df.empty)
+        current_progress = 0
+        
+        if progress_callback:
+            progress_callback(0, total_rows)
         
         total_success = 0
         total_failed = 0
@@ -427,10 +435,21 @@ def process_excel_file(excel_file: str, package_type: PackageType, output_dir: s
                     # 保存时传入工作表名称、索引、日期和输出文件夹
                     save_word_document(doc, sheet_idx, sheet_name, row.get('日期', ''), output_dir)
                     total_success += 1
+                    current_progress += 1
                     logging.debug(f"工作表[{sheet_name}]的第{sheet_idx}行数据处理成功")
+                    
+                    # 更新进度
+                    if progress_callback:
+                        progress_callback(current_progress, total_rows)
+                        
                 except Exception as e:
                     logging.error(f"处理工作表[{sheet_name}]的第{sheet_idx}行数据失败: {str(e)}", exc_info=True)
                     total_failed += 1
+                    current_progress += 1
+                    
+                    # 更新进度（即使失败也算完成）
+                    if progress_callback:
+                        progress_callback(current_progress, total_rows)
                     continue
                     
                 if sheet_idx % 5 == 0:

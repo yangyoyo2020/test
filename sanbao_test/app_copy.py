@@ -4,7 +4,7 @@ from datetime import datetime
 import pandas as pd
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-    QLineEdit, QFileDialog, QMessageBox, QCheckBox,
+    QLineEdit, QFileDialog, QMessageBox, QCheckBox, QComboBox,
     QLabel, QTextEdit, QGroupBox, QProgressDialog
 )
 from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QListView, QTableView
@@ -37,17 +37,18 @@ class AnalysisWorker(QThread):
     finished = pyqtSignal(object)  # 发送分析结果
     error = pyqtSignal(str)  # 发送错误信息
     
-    def __init__(self, df, selected_units, selected_types):
+    def __init__(self, df, selected_units, selected_types, selected_column="预算单位"):
         super().__init__()
         self.df = df
         self.selected_units = selected_units
         self.selected_types = selected_types
+        self.selected_column = selected_column
     
     def run(self):
         try:
             self.progress.emit("开始数据分析...")
             # 分析数据
-            summary = analyze_expenditure(self.df, self.selected_units, self.selected_types)
+            summary = analyze_expenditure(self.df, self.selected_units, self.selected_types, self.selected_column)
             self.progress.emit(f"数据分析完成，生成 {len(summary)} 行汇总结果")
             self.finished.emit(summary)
         except Exception as e:
@@ -99,12 +100,16 @@ class ExpenditureAnalyzer(QMainWindow):
         self.checkboxes_types = {}  # 三保标识复选框
         self.selected_units = []  # 已选预算单位
         self.selected_types = []  # 已选三保标识
+        self.selected_column = "预算单位"  # 选择的列名（默认为预算单位）
         
         # 用于显示/保存选择的输入文件路径
         self.input_path_var = ""
         
         # 日志文本框
         self.log_text = None
+        
+        # 列选择下拉框
+        self.column_combobox = None
         
         # 上一次选择的三保标识（用于避免重复日志）
         self._prev_selected_types = []
@@ -329,9 +334,11 @@ class ExpenditureAnalyzer(QMainWindow):
         layout = QVBoxLayout()
         layout.setSpacing(10)
         
-        frame = QGroupBox("4.预算单位（可选）")
+        frame = QGroupBox(f"4.{self.selected_column}（可选）")
         # 保存引用以便更新标题（已选计数）
         self.units_frame = frame
+        
+        frame.setLayout(QVBoxLayout())
         
         # 添加全选/取消按钮行
         btn_layout = QHBoxLayout()
@@ -349,14 +356,24 @@ class ExpenditureAnalyzer(QMainWindow):
         label = QLabel("*不选择按三保标识汇总")
         label.setObjectName('muted')
         btn_layout.addWidget(label)
+        
+        # 添加列选择（在标签右侧）
+        column_label = QLabel("选择列:")
+        btn_layout.addWidget(column_label)
+        
+        # 列选择下拉框将在加载数据后创建
+        self.column_combobox = QComboBox()
+        self.column_combobox.setFixedWidth(125)
+        self.column_combobox.currentTextChanged.connect(self._on_column_changed)
+        btn_layout.addWidget(self.column_combobox)
+        
         # 在同一行放置搜索框于右侧
         self.units_search = QLineEdit()
-        self.units_search.setFixedWidth(220)
-        self.units_search.setPlaceholderText("搜索预算单位...")
+        self.units_search.setFixedWidth(125)
+        self.units_search.setPlaceholderText(f"搜索{self.selected_column}...")
         btn_layout.addStretch()
         btn_layout.addWidget(self.units_search)
 
-        frame.setLayout(QVBoxLayout())
         frame.layout().addLayout(btn_layout)
 
         # 使用 QStandardItemModel + QSortFilterProxyModel 支持搜索和复选
@@ -454,8 +471,12 @@ class ExpenditureAnalyzer(QMainWindow):
             self.df = load_exported_data(chosen)
             self.logger.info(f"成功加载数据文件: {chosen or '默认路径'}，共 {len(self.df)} 行记录")
 
+            # 创建列选择复选框
+            self._create_column_checkboxes()
+            
             # 更新预算单位复选框：排除预算单位为 0 的项（同时处理数值 0 和字符串 '0'/'0.0'）
-            units_series = self.df['预算单位']
+            selected_col = self.selected_column
+            units_series = self.df[selected_col]
             # 使用 constants.nonzero_unit_mask 来统一判断哪些单位不是 0
             mask_not_zero = nonzero_unit_mask(units_series)
             units = sorted(units_series[mask_not_zero].unique())
@@ -625,11 +646,11 @@ class ExpenditureAnalyzer(QMainWindow):
         
         # 只有当选择数量发生变化且不是全选/取消全选操作时才记录日志
         if old_count != new_count and not self._suppress_log:
-            self.logger.info(f"预算单位: 当前已选择 {new_count} 个单位")
+            self.logger.info(f"{self.selected_column}: 当前已选择 {new_count} 个单位")
         # 更新 GroupBox 标题中的已选计数
         try:
             total = self.units_model.rowCount() if hasattr(self, 'units_model') else len(self.checkboxes_units)
-            self.units_frame.setTitle(f"4.预算单位（可选, 已选 {new_count}/{total}）")
+            self.units_frame.setTitle(f"4.{self.selected_column}（可选, 已选 {new_count}/{total}）")
         except Exception:
             pass
     
@@ -687,6 +708,66 @@ class ExpenditureAnalyzer(QMainWindow):
             pass
         self._update_selected_types()
     
+    def _create_column_checkboxes(self):
+        """创建列选择下拉框"""
+        try:
+            # 清空旧项
+            self.column_combobox.blockSignals(True)
+            self.column_combobox.clear()
+            
+            # 定义可选择的列名列表
+            allowed_columns = [
+                '预算单位', '预算部门', '支出功能分类', '政府支出经济分类',
+                '部门支出经济分类', '项目名称', '项目类别', '资金性质',
+                '指标类型', '收入控制类型', '预算来源', '指标文号', '指标管理处'
+            ]
+            
+            # 获取文档中存在的列，并按照 allowed_columns 的顺序排列
+            if self.df is not None:
+                columns = list(self.df.columns)
+                # 只保留 allowed_columns 中存在于 DataFrame 的列
+                filtered_columns = [col for col in allowed_columns if col in columns]
+                self.column_combobox.addItems(filtered_columns)
+                
+                # 设置默认选中"预算单位"
+                if "预算单位" in filtered_columns:
+                    self.column_combobox.setCurrentText("预算单位")
+                    self.selected_column = "预算单位"
+                else:
+                    self.selected_column = filtered_columns[0] if filtered_columns else ""
+                    self.column_combobox.setCurrentIndex(0)
+            
+            self.column_combobox.blockSignals(False)
+        except Exception as e:
+            self.logger.error(f"创建列选择下拉框失败: {str(e)}")
+    
+    def _on_column_changed(self, column_name):
+        """处理列选择变化"""
+        if not column_name or column_name == self.selected_column:
+            return
+        
+        self.selected_column = column_name
+        self.logger.info(f"已切换数据列为: {column_name}")
+        
+        # 更新 units_frame 标题和搜索框占位符
+        try:
+            self.units_frame.setTitle(f"4.{column_name}（可选, 已选 0/?）")
+            self.units_search.setPlaceholderText(f"搜索{column_name}...")
+        except Exception:
+            pass
+        
+        # 更新预算单位复选框
+        try:
+            units_series = self.df[column_name]
+            mask_not_zero = nonzero_unit_mask(units_series)
+            units = sorted(units_series[mask_not_zero].unique())
+            self._create_unit_checkboxes(units)
+            # 重置已选单位
+            self.selected_units = []
+            self._update_selected_units()
+        except Exception as e:
+            self.logger.error(f"更新{column_name}失败: {str(e)}")
+
     def _run_analysis(self):
         """运行分析并导出结果"""
         # 防止重复启动：如果已有分析在运行则提示并返回
@@ -710,8 +791,8 @@ class ExpenditureAnalyzer(QMainWindow):
         self.progress_dialog.setAutoClose(False)
         self.progress_dialog.setAutoReset(False)
         
-        # 创建并启动分析线程
-        self.worker = AnalysisWorker(self.df, self.selected_units, self.selected_types)
+        # 创建并启动分析线程，传入当前选中的列名以支持非默认列筛选
+        self.worker = AnalysisWorker(self.df, self.selected_units, self.selected_types, self.selected_column)
         self.worker.progress.connect(self._log_message)
         self.worker.finished.connect(self._analysis_completed)
         self.worker.error.connect(self._analysis_failed)
@@ -862,19 +943,18 @@ def load_exported_data(path: Optional[str] = None) -> pd.DataFrame:
     return pd.read_excel(path)
 
 
-def analyze_expenditure(df: pd.DataFrame, selected_units: List[str], selected_types: List[str]) -> pd.DataFrame:
+def analyze_expenditure(df: pd.DataFrame, selected_units: List[str], selected_types: List[str], selected_column: str = "预算单位") -> pd.DataFrame:
     """分析三保支出数据"""
     # 使用多个条件筛选数据
     mask_not_000 = ~df['三保标识'].astype(str).str.match(r'^\[000\]')
     mask_type = df['指标类型'].isin(TARGET_TYPES)
     mask_sanbao = df['三保标识'].isin(selected_types)
-    # 排除预算单位为 0 的行（使用 constants.nonzero_unit_mask）
-    units_series = df['预算单位']
-    mask_not_zero = nonzero_unit_mask(units_series)
+    # 排除预算单位为 0 的行（使用 constants.nonzero_unit_mask），始终使用'预算单位'列
+    mask_not_zero = nonzero_unit_mask(df['预算单位'])
     
     # 如果没有选择预算单位，则不添加预算单位筛选条件
     if selected_units:
-        mask_units = df['预算单位'].isin(selected_units)
+        mask_units = df[selected_column].isin(selected_units)
         filtered_df = df[mask_not_000 & mask_type & mask_units & mask_sanbao & mask_not_zero].copy()
     else:
         # 预算单位可选，未选择时不过滤预算单位
@@ -900,8 +980,8 @@ def analyze_expenditure(df: pd.DataFrame, selected_units: List[str], selected_ty
     
     # 根据是否选择了预算单位来决定分组方式
     if selected_units:
-        # 按三保标识和预算单位分组汇总
-        group_cols = ['三保标识', '预算单位']
+        # 按三保标识和选定列分组汇总
+        group_cols = ['三保标识', selected_column]
     else:
         # 仅按三保标识分组汇总
         group_cols = ['三保标识']
@@ -922,16 +1002,28 @@ def analyze_expenditure(df: pd.DataFrame, selected_units: List[str], selected_ty
     summary['在途+实际支出金额'] = (summary['在途金额'] + summary['实际支出金额']).round(6)
     summary['在途+实际支出进度%'] = (summary['在途+实际支出金额'] / summary['调整预算数']).round(4)
     
+    # 添加备注列（初始为空）
+    summary['备注'] = ''
+    
     # 重置索引并排序
     summary = summary.reset_index()
     
     # 根据分组方式决定排序方式
     if selected_units:
-        summary = summary.sort_values(['预算单位', '三保标识'])
+        summary = summary.sort_values([selected_column, '三保标识'])
     else:
         summary = summary.sort_values(['三保标识'])
     
-    return summary[RESULT_COLS if selected_units else [col for col in RESULT_COLS if col != '预算单位']]
+    # 返回包含备注列的完整结果
+    # 当selected_column不是'预算单位'时，替换结果列中的'预算单位'为actual selected_column
+    if selected_units:
+        result_cols = list(RESULT_COLS)
+        if '预算单位' in result_cols and selected_column != '预算单位':
+            idx = result_cols.index('预算单位')
+            result_cols[idx] = selected_column
+        return summary[result_cols]
+    else:
+        return summary[[col for col in RESULT_COLS if col != '预算单位']]
 
 
     
@@ -943,7 +1035,7 @@ def save_to_excel(summary: pd.DataFrame, output_path: str) -> str:
         raise ValueError(ERROR_MESSAGES['NO_DATA'])
     
     try:
-        from openpyxl.styles import Border, Side
+        from openpyxl.styles import Border, Side, Alignment
         
         # 定义边框样式
         thin_border = Border(
@@ -969,14 +1061,20 @@ def save_to_excel(summary: pd.DataFrame, output_path: str) -> str:
                     for row_idx in range(2, len(summary) + 2):  # 从第2行开始（第1行是标题）
                         worksheet[f"{column_letter}{row_idx}"].number_format = '0.00%'
                 
-                # 调整列宽
+                # 调整列宽（备注列特殊处理）
                 try:
-                    max_len = max(
-                        summary[col_name].astype(str).str.len().max(),
-                        len(str(col_name))
-                    )
-                    if col_idx <= 26:  # Excel列名最大为Z
-                        worksheet.column_dimensions[chr(64 + col_idx)].width = max_len + 2
+                    if col_name == '备注':
+                        # 备注列宽度设置为30，并启用自动换行
+                        worksheet.column_dimensions[chr(64 + col_idx)].width = 30
+                        for row_idx in range(2, len(summary) + 2):
+                            worksheet[f"{chr(64 + col_idx)}{row_idx}"].alignment = Alignment(wrap_text=True, vertical='top')
+                    else:
+                        max_len = max(
+                            summary[col_name].astype(str).str.len().max(),
+                            len(str(col_name))
+                        )
+                        if col_idx <= 26:  # Excel列名最大为Z
+                            worksheet.column_dimensions[chr(64 + col_idx)].width = max_len + 2
                 except Exception:
                     # 忽略列宽调整错误
                     pass
@@ -988,6 +1086,7 @@ def save_to_excel(summary: pd.DataFrame, output_path: str) -> str:
                     cell.border = thin_border
     
         print(f"\n汇总结果已保存至: {output_path}")
+        return output_path
         return output_path
     except Exception as e:
         raise Exception(f"保存Excel文件时出错: {str(e)}")

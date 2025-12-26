@@ -6,9 +6,9 @@
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QLineEdit, QFileDialog, QMessageBox, QLabel, QTextEdit,
-    QGroupBox, QPushButton, QComboBox
+    QGroupBox, QPushButton, QComboBox, QProgressBar
 )
-from PyQt6.QtCore import QThread, pyqtSignal
+from PyQt6.QtCore import QThread, pyqtSignal, Qt
 from PyQt6.QtGui import QFont
 import pandas as pd
 import os
@@ -17,6 +17,26 @@ from .ywjlb_unified import PackageType, process_excel_file
 
 # 获取模块日志记录器
 logger = logging.getLogger(__name__)
+
+
+class UILogHandler(logging.Handler):
+    """自定义日志处理器，将日志消息发送到UI"""
+    
+    def __init__(self, signal_emitter):
+        super().__init__()
+        self.signal_emitter = signal_emitter
+        self.setFormatter(logging.Formatter('%(levelname)s - %(message)s'))
+    
+    def emit(self, record):
+        """处理日志记录"""
+        try:
+            msg = self.format(record)
+            # 立即发射信号，不等待
+            self.signal_emitter.log_signal.emit(msg)
+        except Exception as e:
+            # 如果信号发射失败，至少打印到控制台
+            print(f"日志处理器错误: {e}")
+            print(f"原始消息: {msg}")
 
 
 class ProcessWorker(QThread):
@@ -40,6 +60,7 @@ class YWJLBAnalyzer(QMainWindow):
         self.progress_dialog = None
         
         self._setup_ui()
+        self._setup_logging()
     
     def _setup_ui(self):
         """设置用户界面"""
@@ -66,13 +87,50 @@ class YWJLBAnalyzer(QMainWindow):
         except Exception:
             pass
         
-        # 4. 日志显示区域
+        # 4. 进度条区域
+        main_layout.addLayout(self._create_progress_frame())
+        
+        # 5. 日志显示区域
         main_layout.addLayout(self._create_log_frame())
         
-        # 5. 操作按钮区域
+        # 6. 操作按钮区域
         main_layout.addLayout(self._create_button_frame())
         
         main_layout.addStretch()
+    
+    def _setup_logging(self):
+        """设置日志处理器，将ywjlb_unified模块的日志重定向到UI"""
+        # 创建UI日志处理器
+        self.ui_handler = UILogHandler(self)
+        self.ui_handler.setLevel(logging.DEBUG)  # 捕获所有级别的日志
+        
+        # 获取根logger并添加处理器（因为ywjlb_unified.py直接使用logging模块）
+        root_logger = logging.getLogger()
+        root_logger.addHandler(self.ui_handler)
+        # 保存原始级别
+        self.original_root_level = root_logger.level
+        # 确保根logger的级别允许DEBUG消息通过
+        if root_logger.level > logging.DEBUG:
+            root_logger.setLevel(logging.DEBUG)
+        
+        # 连接信号到日志显示方法
+        self.log_signal.connect(self._append_log)
+        
+        # 调试信息
+        print(f"日志处理器已设置，根logger级别: {root_logger.level}")
+        print(f"处理器数量: {len(root_logger.handlers)}")
+    
+    def closeEvent(self, event):
+        """窗口关闭事件，清理日志处理器"""
+        try:
+            # 移除UI日志处理器
+            root_logger = logging.getLogger()
+            root_logger.removeHandler(self.ui_handler)
+            # 恢复原始级别
+            root_logger.setLevel(self.original_root_level)
+        except Exception:
+            pass
+        super().closeEvent(event)
     
     def _create_file_frame(self):
         """创建文件选择区域"""
@@ -92,7 +150,7 @@ class YWJLBAnalyzer(QMainWindow):
         input_layout.addWidget(QLabel("输入文件:"), 0)
         input_layout.addWidget(self.file_path_input, 1)
         
-        browse_btn = QPushButton("浏览")
+        browse_btn = QPushButton("浏览..")
         browse_btn.setFixedWidth(80)
         browse_btn.clicked.connect(self._choose_input_file)
         input_layout.addWidget(browse_btn)
@@ -108,7 +166,7 @@ class YWJLBAnalyzer(QMainWindow):
         output_layout.addWidget(QLabel("输出文件夹:"), 0)
         output_layout.addWidget(self.output_folder_input, 1)
         
-        output_browse_btn = QPushButton("浏览")
+        output_browse_btn = QPushButton("浏览..")
         output_browse_btn.setFixedWidth(80)
         output_browse_btn.clicked.connect(self._choose_output_folder)
         output_layout.addWidget(output_browse_btn)
@@ -241,12 +299,33 @@ class YWJLBAnalyzer(QMainWindow):
         layout.addWidget(frame)
         return layout
     
+    def _create_progress_frame(self):
+        """创建进度条区域"""
+        layout = QVBoxLayout()
+        layout.setSpacing(8)
+        
+        frame = QGroupBox("转换进度")
+        frame.setFont(self._get_bold_font())
+        
+        # 创建进度条
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setRange(0, 100)
+        self.progress_bar.setValue(0)
+        self.progress_bar.setFormat("准备就绪")
+        self.progress_bar.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        
+        frame.setLayout(QVBoxLayout())
+        frame.layout().addWidget(self.progress_bar)
+        
+        layout.addWidget(frame)
+        return layout
+    
     def _create_log_frame(self):
         """创建日志显示区域"""
         layout = QVBoxLayout()
         layout.setSpacing(8)
         
-        frame = QGroupBox("3.日志信息")
+        frame = QGroupBox("日志信息")
         frame.setFont(self._get_bold_font())
         
         # 创建日志文本框
@@ -397,17 +476,33 @@ class YWJLBAnalyzer(QMainWindow):
             return
         
         try:
+            # 重置进度条
+            self.progress_bar.setValue(0)
+            self.progress_bar.setFormat("开始处理...")
+            
             self._append_log("=" * 50)
             self._append_log("开始处理数据并导出Word文档...")
             self._append_log(f"包类型: {self.selected_package_type.value}")
             self._append_log(f"输出文件夹: {self.output_folder_path}")
             
-            # 调用处理函数，传入输出文件夹路径
+            # 定义进度回调函数
+            def progress_callback(current, total):
+                if total > 0:
+                    percentage = int((current / total) * 100)
+                    self.progress_bar.setValue(percentage)
+                    self.progress_bar.setFormat(f"处理进度: {current}/{total} ({percentage}%)")
+            
+            # 调用处理函数，传入输出文件夹路径和进度回调
             success_count, fail_count = process_excel_file(
                 self.input_file_path,
                 self.selected_package_type,
-                self.output_folder_path
+                self.output_folder_path,
+                progress_callback
             )
+            
+            # 设置进度条为完成状态
+            self.progress_bar.setValue(100)
+            self.progress_bar.setFormat("处理完成")
             
             self._append_log("=" * 50)
             self._append_log("✓ 处理完成!")
@@ -424,6 +519,9 @@ class YWJLBAnalyzer(QMainWindow):
             )
             
         except Exception as e:
+            # 处理失败时重置进度条
+            self.progress_bar.setValue(0)
+            self.progress_bar.setFormat("处理失败")
             self._append_log(f"✗ 处理失败: {str(e)}")
             QMessageBox.critical(self, "错误", f"处理失败:\n{str(e)}")
     
@@ -439,6 +537,10 @@ class YWJLBAnalyzer(QMainWindow):
             # 自动滚动到底部
             scrollbar = self.log_text.verticalScrollBar()
             scrollbar.setValue(scrollbar.maximum())
+            
+            # 强制处理事件，确保UI立即更新
+            from PyQt6.QtWidgets import QApplication
+            QApplication.processEvents()
         except Exception:
             pass
     

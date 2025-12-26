@@ -3,6 +3,12 @@ __pycache__/
 *.py[oc]
 build/
 dist/
+*.xlsx
+*.csv
+*.xls
+*.pdf
+*.docx
+*.doc
 wheels/
 *.egg-info
 

@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 2,
+      "name": "Bob"
+    }
+  ],
+  "metrics": [
+    {
+      "code": 100,
+      "value": 3.14
+    },
+    {
+      "code": 200,
+      "value": 2.71
+    }
+  ]
+}

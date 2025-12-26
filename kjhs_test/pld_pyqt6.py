@@ -15,7 +15,7 @@ from PyQt6.QtWidgets import (
     QLabel, QLineEdit, QPushButton, QTextEdit, QFileDialog,
     QMessageBox, QGroupBox, QGridLayout, QProgressBar
 )
-from PyQt6.QtCore import QThread, pyqtSignal
+from PyQt6.QtCore import QThread, pyqtSignal, Qt
 from PyQt6.QtGui import QFont
 
 
@@ -368,19 +368,47 @@ class AnalysisWorker(QThread):
     
     def run(self):
         try:
+            logger = self.analyzer.logger
+            logger.info("[AnalysisWorker] 线程开始运行")
+            
             self.progress.emit(10)
-            self.analyzer.read_data()
+            try:
+                logger.info("[AnalysisWorker] 正在读取数据...")
+                self.analyzer.read_data()
+                logger.info("[AnalysisWorker] 数据读取完成")
+            except Exception as e:
+                logger.error(f"[AnalysisWorker] 读取数据失败: {e}", exc_info=True)
+                raise
+            
             self.progress.emit(40)
+            try:
+                logger.info("[AnalysisWorker] 正在处理数据...")
+                self.analyzer.process_data()
+                logger.info("[AnalysisWorker] 数据处理完成")
+            except Exception as e:
+                logger.error(f"[AnalysisWorker] 处理数据失败: {e}", exc_info=True)
+                raise
             
-            self.analyzer.process_data()
             self.progress.emit(70)
+            try:
+                logger.info("[AnalysisWorker] 正在保存结果...")
+                output_path = self.analyzer.save_results()
+                logger.info(f"[AnalysisWorker] 结果已保存: {output_path}")
+            except Exception as e:
+                logger.error(f"[AnalysisWorker] 保存结果失败: {e}", exc_info=True)
+                raise
             
-            output_path = self.analyzer.save_results()
             self.progress.emit(100)
             
+            logger.info("[AnalysisWorker] 分析完成，发送 finished 信号")
             self.finished.emit(output_path)
+            logger.info("[AnalysisWorker] 线程即将退出")
         except Exception as e:
-            self.error.emit(str(e))
+            logger = getattr(self.analyzer, 'logger', None)
+            if logger:
+                logger.error(f"[AnalysisWorker] 线程执行异常: {e}", exc_info=True)
+            error_msg = str(e)
+            self.error.emit(error_msg)
 
 class AccountingAnalyzer:
     """会计核算数据与预算执行数据对比分析工具"""
@@ -389,8 +417,9 @@ class AccountingAnalyzer:
                  kjhs_path: str = '', 
                  output_path: str = ''):
         """初始化分析器"""
-        self.yszx_path = Path(yszx_path) if yszx_path else Path('./导出数据')
-        self.kjhs_path = Path(kjhs_path) if kjhs_path else Path('./会计核算.xls')
+        # 如果未提供路径，则设置为空路径，等待用户通过UI选择
+        self.yszx_path = Path(yszx_path) if yszx_path else Path('')
+        self.kjhs_path = Path(kjhs_path) if kjhs_path else Path('')
         
         # 如果未指定输出路径，生成带时间戳的文件名
         if output_path:
@@ -436,6 +465,10 @@ class AccountingAnalyzer:
     
     def _read_file(self, file_path: Path, valid_extensions: list, skiprows: int = 0) -> pd.DataFrame:
         """通用文件读取方法"""
+        # 检查路径是否有效，排除相对路径的特殊目录
+        if not file_path or str(file_path) in ('.', '..') or file_path.parts == ('.',) or file_path.parts == ('..',):
+            raise FileNotFoundError(f"请先选择有效的数据文件: {file_path}")
+        
         for ext in valid_extensions:
             full_path = file_path.with_suffix(f'.{ext}')
             if full_path.exists():
@@ -468,30 +501,64 @@ class AccountingAnalyzer:
     def _merge_and_calculate_deviation(self, yszx_df: pd.DataFrame, 
                                      kjhs_df: pd.DataFrame) -> pd.DataFrame:
         """合并数据并计算偏离度"""
-        self.logger.info("开始合并数据并计算偏离度...")
-        
-        # 合并数据
-        merged_df = pd.merge(yszx_df, kjhs_df, on='单位编码', how='left')
-        merged_df['会计核算_支出数'] = merged_df['会计核算_支出数'].fillna(0)
-        
-        # 计算差额和偏离度
-        merged_df['差额'] = merged_df['会计核算_支出数'] - merged_df['预算执行_支出数']
-        merged_df['差额'] = merged_df['差额'].round(
-            ConfigManager.get_config('decimal_places')
-        )
-        
-        # 安全计算偏离度
-        merged_df['偏离度'] = merged_df.apply(self._calculate_deviation_safe, axis=1)
-        merged_df['备注'] = ''
-        
-        # 重新排列列
-        result_df = merged_df[[
-            '序号', '单位编码', '预算单位', '预算执行_支出数', 
-            '会计核算_支出数', '差额', '偏离度', '备注'
-        ]]
-        
-        self.logger.info(f"数据合并完成，共 {len(result_df)} 条记录")
-        return result_df
+        try:
+            self.logger.info("开始合并数据并计算偏离度...")
+            
+            # 合并数据
+            try:
+                merged_df = pd.merge(yszx_df, kjhs_df, on='单位编码', how='left')
+                self.logger.info(f"数据合并完成，共 {len(merged_df)} 条记录")
+            except Exception as e:
+                self.logger.error(f"合并数据失败: {e}", exc_info=True)
+                raise
+            
+            try:
+                merged_df['会计核算_支出数'] = merged_df['会计核算_支出数'].fillna(0)
+            except Exception as e:
+                self.logger.error(f"填充会计核算数据失败: {e}", exc_info=True)
+                raise
+            
+            # 计算差额和偏离度
+            try:
+                merged_df['差额'] = merged_df['会计核算_支出数'] - merged_df['预算执行_支出数']
+                merged_df['差额'] = merged_df['差额'].round(
+                    ConfigManager.get_config('decimal_places')
+                )
+                self.logger.info("差额计算完成")
+            except Exception as e:
+                self.logger.error(f"计算差额失败: {e}", exc_info=True)
+                raise
+            
+            # 安全计算偏离度
+            try:
+                self.logger.info("正在计算偏离度...")
+                merged_df['偏离度'] = merged_df.apply(self._calculate_deviation_safe, axis=1)
+                self.logger.info("偏离度计算完成")
+            except Exception as e:
+                self.logger.error(f"计算偏离度失败: {e}", exc_info=True)
+                raise
+            
+            try:
+                merged_df['备注'] = ''
+            except Exception as e:
+                self.logger.error(f"添加备注列失败: {e}", exc_info=True)
+                raise
+            
+            # 重新排列列
+            try:
+                result_df = merged_df[[
+                    '序号', '单位编码', '预算单位', '预算执行_支出数', 
+                    '会计核算_支出数', '差额', '偏离度', '备注'
+                ]]
+                self.logger.info(f"数据合并完成，共 {len(result_df)} 条记录")
+                return result_df
+            except Exception as e:
+                self.logger.error(f"重新排列列失败: {e}", exc_info=True)
+                raise
+        except Exception as e:
+            self.logger.error(f"_merge_and_calculate_deviation() 异常: {e}", exc_info=True)
+            raise
+    
     
     @staticmethod
     def _calculate_deviation_safe(row) -> Optional[float]:
@@ -502,24 +569,47 @@ class AccountingAnalyzer:
     
     def save_results(self):
         """保存结果"""
-        if self.result_df is None:
-            raise ValueError("请先处理数据")
-        
-        self.logger.info(f"开始保存结果到: {self.output_path}")
-        
-        # 确保输出目录存在
-        self.output_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        # 保存到Excel
-        self.result_df.to_excel(self.output_path, sheet_name='偏离度', index=False)
-        
-        # 格式化Excel
-        self.excel_formatter.format_excel(
-            self.output_path, '偏离度', len(self.result_df)
-        )
-        
-        self.logger.info(f"分析结果已保存到: {self.output_path}")
-        return str(self.output_path)
+        try:
+            if self.result_df is None:
+                raise ValueError("请先处理数据")
+            
+            self.logger.info(f"开始保存结果到: {self.output_path}")
+            
+            # 确保输出目录存在
+            try:
+                self.output_path.parent.mkdir(parents=True, exist_ok=True)
+                self.logger.info(f"输出目录已创建或已存在: {self.output_path.parent}")
+            except Exception as e:
+                self.logger.error(f"创建输出目录失败: {e}")
+                raise
+            
+            # 保存到Excel
+            try:
+                self.logger.info(f"正在将数据写入 Excel 文件: {self.output_path}")
+                self.result_df.to_excel(self.output_path, sheet_name='偏离度', index=False)
+                self.logger.info("Excel 文件写入成功")
+            except Exception as e:
+                self.logger.error(f"写入 Excel 文件失败: {e}", exc_info=True)
+                raise
+            
+            # 格式化Excel
+            try:
+                self.logger.info("正在格式化 Excel 文件...")
+                self.excel_formatter.format_excel(
+                    self.output_path, '偏离度', len(self.result_df)
+                )
+                self.logger.info("Excel 文件格式化成功")
+            except Exception as e:
+                self.logger.error(f"格式化 Excel 文件失败: {e}", exc_info=True)
+                # 不抛出异常，因为主要数据已经保存
+                self.logger.warning("继续返回已保存的结果（但可能缺少格式化）")
+            
+            self.logger.info(f"分析结果已保存到: {self.output_path}")
+            return str(self.output_path)
+        except Exception as e:
+            self.logger.error(f"save_results() 异常: {e}", exc_info=True)
+            raise
+    
     
     def run_analysis(self):
         """执行完整分析流程"""
@@ -579,6 +669,9 @@ class MainWindow(QMainWindow):
         
         # 初始化工作线程
         self.worker = None
+        
+        # 初始化时检查文件路径并更新按钮状态
+        self.update_analyze_button_state()
     
     def init_ui(self):
         """初始化用户界面"""
@@ -598,9 +691,20 @@ class MainWindow(QMainWindow):
         self.create_file_selection_section(main_layout)
         
         # 创建进度条
+        progress_group = QGroupBox("分析进度")
+        progress_layout = QVBoxLayout()
+        
         self.progress_bar = QProgressBar()
-        self.progress_bar.setVisible(False)
-        main_layout.addWidget(self.progress_bar)
+        self.progress_bar.setRange(0, 100)
+        self.progress_bar.setValue(0)
+        self.progress_bar.setFormat("准备就绪")
+        self.progress_bar.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        # 进度条始终可见，不依赖分析按钮状态
+        self.progress_bar.setVisible(True)
+        
+        progress_layout.addWidget(self.progress_bar)
+        progress_group.setLayout(progress_layout)
+        main_layout.addWidget(progress_group)
         
         # 创建按钮区域
         self.create_buttons_section(main_layout)
@@ -726,6 +830,10 @@ class MainWindow(QMainWindow):
         if file_path:
             self.yszx_path_edit.setText(file_path)
             self.analyzer.yszx_path = Path(file_path)
+            # 记录操作日志
+            self.logger.info(f"已选择预算执行数据文件: {file_path}")
+            # 更新分析按钮状态
+            self.update_analyze_button_state()
     
     def browse_kjhs_file(self):
         """浏览会计核算数据文件"""
@@ -736,6 +844,10 @@ class MainWindow(QMainWindow):
         if file_path:
             self.kjhs_path_edit.setText(file_path)
             self.analyzer.kjhs_path = Path(file_path)
+            # 记录操作日志
+            self.logger.info(f"已选择会计核算数据文件: {file_path}")
+            # 更新分析按钮状态
+            self.update_analyze_button_state()
     
     def browse_output_file(self):
         """浏览输出文件路径"""
@@ -771,15 +883,31 @@ class MainWindow(QMainWindow):
     
     def start_analysis(self):
         """开始分析过程"""
+        # 验证输入文件路径是否有效
+        yszx_path_str = self.yszx_path_edit.text().strip()
+        kjhs_path_str = self.kjhs_path_edit.text().strip()
+        
+        if not yszx_path_str or yszx_path_str in ['.', '..']:
+            self.logger.error("请先选择预算执行数据文件")
+            QMessageBox.critical(self, "错误", "请先选择预算执行数据文件")
+            self.analyze_btn.setEnabled(True)
+            return
+        
+        if not kjhs_path_str or kjhs_path_str in ['.', '..']:
+            self.logger.error("请先选择会计核算数据文件")
+            QMessageBox.critical(self, "错误", "请先选择会计核算数据文件")
+            self.analyze_btn.setEnabled(True)
+            return
+
         # 禁用分析按钮防止重复点击
         self.analyze_btn.setEnabled(False)
-        self.progress_bar.setVisible(True)
-        self.progress_bar.setValue(0)
+        self.progress_bar.setValue(0)  # 重置进度条
+        self.progress_bar.setFormat("准备开始分析...")
         self.logger.info("准备开始分析...")
         
         # 更新分析器路径
-        self.analyzer.yszx_path = Path(self.yszx_path_edit.text())
-        self.analyzer.kjhs_path = Path(self.kjhs_path_edit.text())
+        self.analyzer.yszx_path = Path(yszx_path_str)
+        self.analyzer.kjhs_path = Path(kjhs_path_str)
         self.analyzer.output_path = Path(self.output_path_edit.text())
         
         # 创建并启动工作线程
@@ -792,17 +920,27 @@ class MainWindow(QMainWindow):
     def update_progress(self, value):
         """更新进度条"""
         self.progress_bar.setValue(value)
+        if value == 0:
+            self.progress_bar.setFormat("准备就绪")
+        elif value < 100:
+            self.progress_bar.setFormat(f"处理进度: {value}%")
+        else:
+            self.progress_bar.setFormat("处理完成")
     
     def analysis_completed(self, output_path):
         """分析完成回调"""
         self.analyze_btn.setEnabled(True)
-        self.progress_bar.setVisible(False)
+        # 分析完成后进度条保持显示状态
+        self.progress_bar.setFormat("处理完成")
         QMessageBox.information(self, "成功", f"分析已完成！结果已保存至:\n{output_path}")
     
     def analysis_failed(self, error_msg):
         """分析失败回调"""
+        if getattr(self, 'logger', None):
+            self.logger.error(f"分析失败: {error_msg}")
         self.analyze_btn.setEnabled(True)
-        self.progress_bar.setVisible(False)
+        # 分析失败后进度条也保持显示状态
+        self.progress_bar.setFormat("处理失败")
         QMessageBox.critical(self, "分析失败", f"分析过程中发生错误:\n{error_msg}")
     
     def update_log(self, message):
@@ -810,6 +948,106 @@ class MainWindow(QMainWindow):
         self.log_text.append(message)
         # 自动滚动到底部
         self.log_text.verticalScrollBar().setValue(self.log_text.verticalScrollBar().maximum())
+    
+    def update_analyze_button_state(self):
+        """更新分析按钮状态，根据文件路径是否有效来决定按钮是否可用"""
+        yszx_path = self.yszx_path_edit.text().strip()
+        kjhs_path = self.kjhs_path_edit.text().strip()
+        
+        # 检查路径是否有效（非空且不是特殊路径）
+        yszx_valid = bool(yszx_path) and yszx_path not in ['.', '..']
+        kjhs_valid = bool(kjhs_path) and kjhs_path not in ['.', '..']
+        
+        # 只有当两个文件路径都有效时，按钮才可用
+        self.analyze_btn.setEnabled(yszx_valid and kjhs_valid)
+    
+    def closeEvent(self, event):
+        """窗口关闭时清理：终止运行中的分析线程，移除 logger 的 handler"""
+        try:
+            if getattr(self, 'logger', None):
+                try:
+                    self.logger.info("会计核算偏离度工具：开始清理资源...")
+                except Exception as log_err:
+                    print(f"记录开始日志失败: {log_err}", file=__import__('sys').stderr)
+            
+            # 如果有正在运行的 worker，尝试终止
+            try:
+                if getattr(self, 'worker', None):
+                    try:
+                        if getattr(self.worker, 'isRunning', lambda: False)():
+                            if getattr(self, 'logger', None):
+                                try:
+                                    self.logger.info("会计核算偏离度工具：正在终止分析线程...")
+                                except Exception:
+                                    pass
+                            try:
+                                self.worker.terminate()
+                                # 等待最多 2000ms 让线程优雅终止
+                                self.worker.wait(2000)
+                            except Exception as e:
+                                if getattr(self, 'logger', None):
+                                    try:
+                                        self.logger.error(f"终止线程失败: {e}")
+                                    except Exception:
+                                        pass
+                    except Exception as worker_err:
+                        print(f"处理 worker 异常: {worker_err}", file=__import__('sys').stderr)
+            except Exception as cleanup_err:
+                print(f"清理 worker 时异常: {cleanup_err}", file=__import__('sys').stderr)
+            
+            # 断开所有信号连接（包括 log_signal）
+            try:
+                if getattr(self, 'log_signal', None):
+                    try:
+                        self.log_signal.disconnect()
+                    except Exception:
+                        pass
+            except Exception:
+                pass
+            
+            # 从全局 logger 中移除与本窗口绑定的 handler，避免 handler 泄露
+            try:
+                from common.logger import QtSignalHandler
+                if getattr(self, 'logger', None):
+                    # 激进地移除所有 QtSignalHandler
+                    for h in list(self.logger.handlers):
+                        try:
+                            if isinstance(h, QtSignalHandler):
+                                try:
+                                    self.logger.removeHandler(h)
+                                    if getattr(self, 'logger', None):
+                                        try:
+                                            self.logger.info(f"已移除 signal handler: {h}")
+                                        except Exception:
+                                            pass
+                                except Exception as handler_err:
+                                    print(f"移除 handler 失败: {handler_err}", file=__import__('sys').stderr)
+                        except Exception:
+                            pass
+            except Exception as signal_cleanup_err:
+                print(f"清理 signal handler 异常: {signal_cleanup_err}", file=__import__('sys').stderr)
+            
+            # 清空 analyzer 和 worker 引用
+            try:
+                self.analyzer = None
+                self.worker = None
+            except Exception:
+                pass
+            
+            if getattr(self, 'logger', None):
+                try:
+                    self.logger.info("会计核算偏离度工具：资源清理完成，窗口关闭")
+                except Exception:
+                    pass
+        except Exception as e:
+            print(f"closeEvent 顶层异常: {e}", file=__import__('sys').stderr)
+        
+        try:
+            super().closeEvent(event)
+        except Exception as super_err:
+            print(f"调用父类 closeEvent 失败: {super_err}", file=__import__('sys').stderr)
+            event.accept()
+    
 
 def main():
     """主函数"""

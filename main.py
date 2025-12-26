@@ -13,7 +13,7 @@ from sanbao_test.app_copy import ExpenditureAnalyzer
 from kjhs_test.pld_pyqt6 import MainWindow
 from json_to_excel.json_to_excel_pyqt import JSONToExcelConverter
 from common.logger import get_logger
-# 导入运维记录簿主窗口
+# 导入运维记录表主窗口
 from ywjlb.ywjlb_ui import YWJLBAnalyzer
 
 
@@ -178,9 +178,30 @@ def main():
 
     # 在入口创建应用级 logger 并注入到各子窗口
     app_logger = get_logger('App')
-    window = UnifiedLoginWindow(logger=app_logger)
-    window.show()
-    sys.exit(app.exec())
+    
+    # 设置全局未处理异常处理器
+    def exception_handler(exc_type, exc_value, exc_traceback):
+        if issubclass(exc_type, KeyboardInterrupt):
+            sys.__excepthook__(exc_type, exc_value, exc_traceback)
+            return
+        app_logger.error("未处理的异常:", exc_info=(exc_type, exc_value, exc_traceback))
+        print(f"FATAL ERROR: {exc_type.__name__}: {exc_value}", file=sys.stderr)
+        import traceback
+        traceback.print_exception(exc_type, exc_value, exc_traceback, file=sys.stderr)
+    
+    sys.excepthook = exception_handler
+    
+    try:
+        window = UnifiedLoginWindow(logger=app_logger)
+        window.show()
+        exit_code = app.exec()
+        app_logger.info(f"应用正常退出，退出代码: {exit_code}")
+        sys.exit(exit_code)
+    except Exception as e:
+        app_logger.error(f"主窗口异常: {e}", exc_info=True)
+        import traceback
+        traceback.print_exc(file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
