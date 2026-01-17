@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import (
     QLineEdit, QFileDialog, QMessageBox, QCheckBox, QComboBox,
     QLabel, QTextEdit, QGroupBox, QProgressDialog
 )
+from PyQt6.QtWidgets import QProgressBar
 from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QListView, QTableView
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QAbstractTableModel, QModelIndex, QSortFilterProxyModel
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QBrush, QColor
@@ -34,6 +35,7 @@ percent_cols = ['实际支出进度%', '在途+实际支出进度%']
 class AnalysisWorker(QThread):
     """分析工作线程，避免UI卡顿"""
     progress = pyqtSignal(str)  # 发送进度信息到UI
+    progress_percent = pyqtSignal(int)  # 发送进度百分比到UI
     finished = pyqtSignal(object)  # 发送分析结果
     error = pyqtSignal(str)  # 发送错误信息
     
@@ -47,9 +49,18 @@ class AnalysisWorker(QThread):
     def run(self):
         try:
             self.progress.emit("开始数据分析...")
+            # emit small initial percent
+            try:
+                self.progress_percent.emit(5)
+            except Exception:
+                pass
             # 分析数据
             summary = analyze_expenditure(self.df, self.selected_units, self.selected_types, self.selected_column)
             self.progress.emit(f"数据分析完成，生成 {len(summary)} 行汇总结果")
+            try:
+                self.progress_percent.emit(100)
+            except Exception:
+                pass
             self.finished.emit(summary)
         except Exception as e:
             self.error.emit(str(e))
@@ -171,6 +182,8 @@ class ExpenditureAnalyzer(QMainWindow):
         button_layout = self._create_button_frame()
         main_frame.addLayout(button_layout)
 
+       
+
         # 初始时禁用分析按钮，直到成功加载数据
         try:
             self.analyze_btn.setEnabled(False)
@@ -186,6 +199,14 @@ class ExpenditureAnalyzer(QMainWindow):
         preview_frame.layout().addWidget(self.preview_view)
         main_frame.addWidget(preview_frame)
         
+        # 界面内持久进度条（始终可见）
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setRange(0, 100)
+        self.progress_bar.setValue(0)
+        self.progress_bar.setVisible(True)
+        main_frame.addWidget(self.progress_bar)
+
+
         # 创建日志区域
         log_layout = self._create_log_frame()
         main_frame.addLayout(log_layout)
@@ -794,6 +815,12 @@ class ExpenditureAnalyzer(QMainWindow):
         # 创建并启动分析线程，传入当前选中的列名以支持非默认列筛选
         self.worker = AnalysisWorker(self.df, self.selected_units, self.selected_types, self.selected_column)
         self.worker.progress.connect(self._log_message)
+        # 将百分比进度绑定到界面进度条
+        try:
+            self.worker.progress_percent.connect(self.progress_bar.setValue)
+            self.progress_bar.setValue(0)
+        except Exception:
+            pass
         self.worker.finished.connect(self._analysis_completed)
         self.worker.error.connect(self._analysis_failed)
         self.progress_dialog.canceled.connect(self.worker.terminate)
@@ -842,6 +869,11 @@ class ExpenditureAnalyzer(QMainWindow):
                 self.analyze_btn.setEnabled(True)
             except Exception:
                 pass
+            # 重置界面进度条（保持可见）
+            try:
+                self.progress_bar.setValue(0)
+            except Exception:
+                pass
     
     def _analysis_failed(self, error_msg):
         """分析失败回调"""
@@ -859,6 +891,11 @@ class ExpenditureAnalyzer(QMainWindow):
         QMessageBox.critical(self, "错误", f"分析过程中发生错误:\n{error_msg}")
         try:
             self.analyze_btn.setEnabled(True)
+        except Exception:
+            pass
+        # 重置界面进度条（保持可见）
+        try:
+            self.progress_bar.setValue(0)
         except Exception:
             pass
 

@@ -3,7 +3,7 @@ import pandas as pd
 import json
 from pathlib import Path
 from PyQt6.QtWidgets import (QApplication, QWidget, QVBoxLayout, QPushButton, 
-                             QLabel, QFileDialog, QMessageBox, QProgressDialog, QTextEdit, QGroupBox, QHBoxLayout, QSizePolicy, QLineEdit, QCheckBox, QComboBox)
+                             QLabel, QFileDialog, QMessageBox, QProgressDialog, QProgressBar, QTextEdit, QGroupBox, QHBoxLayout, QSizePolicy, QLineEdit, QCheckBox, QComboBox)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QFont
 from common.logger import get_logger, add_qt_signal
@@ -406,6 +406,13 @@ class JSONToExcelConverter(QWidget):
 
         main_layout.addLayout(btn_layout)
 
+        # 界面内进度条（替代运行时弹窗进度）
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setRange(0, 100)
+        self.progress_bar.setValue(0)
+        self.progress_bar.setVisible(True)
+        main_layout.addWidget(self.progress_bar)
+
         # 分隔线
         main_layout.addWidget(create_separator(self))
 
@@ -535,22 +542,21 @@ class JSONToExcelConverter(QWidget):
         if not save_path.endswith('.json'):
             save_path += '.json'
 
-        # 创建进度对话框
-        progress = QProgressDialog("正在转换 Excel 到 JSON...", "取消", 0, 100, self)
-        progress.setWindowTitle("处理中")
-        progress.setWindowModality(Qt.WindowModality.WindowModal)
-        progress.setValue(0)
-
-        # 启动线程进行转换以避免阻塞 UI
-        # 读取输出格式设置
+        # 在界面上显示进度条并启动线程（不使用弹窗）
         fmt_index = self.excel_json_fmt.currentIndex() if getattr(self, 'excel_json_fmt', None) else 0
         fmt_value = ['auto', 'always_array', 'always_object'][fmt_index]
         self.excel_worker = ExcelToJSONWorker(self.input_file_path, save_path, logger=getattr(self, 'logger', None), output_mode=fmt_value)
-        self.excel_worker.progress_updated.connect(progress.setValue)
+        # 显示并重置界面进度条
+        try:
+            self.progress_bar.setVisible(True)
+            self.progress_bar.setValue(0)
+        except Exception:
+            pass
+
+        self.excel_worker.progress_updated.connect(self.progress_bar.setValue)
         self.excel_worker.conversion_finished.connect(self.on_conversion_finished)
-        progress.canceled.connect(self.excel_worker.terminate)
+        # 启动线程（不阻塞主线程）
         self.excel_worker.start()
-        progress.exec()
 
     
     def convert_json_to_excel(self):
@@ -583,14 +589,7 @@ class JSONToExcelConverter(QWidget):
         except Exception:
             pass
         
-        # 创建进度对话框
-        progress = QProgressDialog("正在转换...", "取消", 0, 100, self)
-        progress.setWindowTitle("处理中")
-        progress.setWindowModality(Qt.WindowModality.WindowModal)
-        progress.setValue(0)
-        
         # 读取用户选项并转换为列表
-        # 由于相关输入控件已移除，直接设为空列表，或根据实际需求设置默认值
         numeric_cols = []
         date_cols = []
         split_fields = []
@@ -600,14 +599,18 @@ class JSONToExcelConverter(QWidget):
 
         # 创建并启动转换线程（将 UI 层的 logger 传入 worker，并传入选项）
         self.worker = ConversionWorker(self.json_file_path, save_path, logger=getattr(self, 'logger', None), mode=mode, numeric_cols=numeric_cols, date_cols=date_cols, split_fields=split_fields, dedupe_by=dedupe_by, raw_sheet=raw_sheet)
-        self.worker.progress_updated.connect(progress.setValue)
+
+        # 在界面上显示并重置进度条
+        try:
+            self.progress_bar.setVisible(True)
+            self.progress_bar.setValue(0)
+        except Exception:
+            pass
+
+        self.worker.progress_updated.connect(self.progress_bar.setValue)
         self.worker.conversion_finished.connect(self.on_conversion_finished)
-        
-        # 连接取消按钮信号
-        progress.canceled.connect(self.worker.terminate)
-        
+
         self.worker.start()
-        progress.exec()
 
     def on_conversion_finished(self, success, message):
         # 记录并展示转换结果
@@ -634,6 +637,11 @@ class JSONToExcelConverter(QWidget):
                 message,
                 QMessageBox.StandardButton.Ok
             )
+        # 重置界面进度条（保持可见）
+        try:
+            self.progress_bar.setValue(0)
+        except Exception:
+            pass
 
     def closeEvent(self, event):
         """窗口关闭时清理：终止运行中的转换线程，移除 logger 的 handler"""
