@@ -212,7 +212,17 @@ class AccountingProcessor(DataProcessor):
     
     def _calculate_expenditure(self, df: pd.DataFrame) -> pd.DataFrame:
         """计算支出数"""
+        """汇总余额表中的凭证类型选择全部，如果已经生成年末转账凭证，计算出来的支出数为0，需要手动处理"""
+        """"汇总余额表中凭证类型只选择记账类型，那么如果有个别单位的凭证类型调整过，可能只查询到一部分数据，或者取不到数据"""
         df['会计核算_支出数'] = (df['借方累计'] - df['贷方累计']) / 10000
+
+        """下面的计算方式为了做了年末结转以后生成的支出数，实际计算时存在问题
+            借方累计-贷方累计=0时，使用借方累计除以10000作为支出数；否则使用计算值
+            如果记账凭证借方累计和贷方累计都有数时，直接使用借方累计数赋值计算的核算支出数大，并不是实际的支出数
+        """
+        # calculation = (df['借方累计'] - df['贷方累计']) / 10000
+        # # 当计算结果为0时，使用借方累计除以10000作为支出数；否则使用计算值
+        # df['会计核算_支出数'] = calculation.where(calculation != 0, df['借方累计'] / 10000)
         return df
     
     def _extract_unit_code_and_group(self, df: pd.DataFrame) -> pd.DataFrame:
